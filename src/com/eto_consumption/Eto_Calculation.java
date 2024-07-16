@@ -66,7 +66,7 @@ public class Eto_Calculation {
 //		}
 		
 //		CreatTilesofBound("/home/shatam-100/Down/WaterView_Data/Tiles/District-Boundaries-202404/DistrictBoundaries_geojson/vallejo_.geojson");
-		CreatTilesofBound("/home/shatam-100/Cache/1_roseville.geojson");
+		CreatTilesofBound("/home/shatam-100/Down/WaterView_Data/Tiles/District-Boundaries-202404/DistrictBoundaries_geojson/san_clemente_.geojson");
 
 
 	}

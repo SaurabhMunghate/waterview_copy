@@ -77,7 +77,7 @@ public class Main_Allocation_RES_Daily_APN_MFile_premise1 {
 
 	@SuppressWarnings("unchecked")
 	public static void main(String[] arg) throws Exception {
-		String Folder = "/home/shatam-100/Down/WaterView_Data/FTP_DATA/Data_Folder_2024-06-25/WVCASACRAMENTO" + "/";
+		String Folder = "/home/shatam-100/Down/WaterView_Data/FTP_DATA/Data_Folder_2024-07-01/WVBRENTWOOD" + "/";
 		createConsumtionFile(Folder);
 		System.out.println("Total Data Size : " + count + " | " + uniquedata.size());
 		System.out.println("NULL : " + NULL);
@@ -123,8 +123,8 @@ public class Main_Allocation_RES_Daily_APN_MFile_premise1 {
 		readAllConsumption(meter_locations_res);
 //        System.out.println(als.size());
 //		LocalDate startD = LocalDate.of(2017, 1, 1);
-		LocalDate startD = LocalDate.of(2021,12, 31);
-//        LocalDate endD = LocalDate.of(2018, 12, 31);
+		LocalDate startD = LocalDate.of(2024, 4, 1);
+//      LocalDate endD = LocalDate.of(2020, 12, 31);
 		LocalDate endD = LocalDate.of(2024, 5, 31);
 //		LocalDate endD = LocalDate.of(2020,12, 31);
 		DateTimeFormatter formatter = DateTimeFormatter.ofPattern("yyyy-MM");

@@ -87,7 +87,7 @@ public class ReadShapeFile {
 		
 //		readSchema("/home/shatam-100/Down/WaterView_Data/San_Jose_/AOI.shp");
 //		readSchema("/home/shatam-100/Down/WaterView_Data/Tiles/District-Boundaries-202404/DistrictBoundaries/las_virgenes/AOI.shp");
-		readSchema("/home/shatam-100/Down/WaterView_Data/Tiles/District-Boundaries-202404/DistrictBoundaries_SHP/Rancho_AOI/Rancho_Bound.shp");
+		readSchema("/home/shatam-100/Down/WaterView_Data/Tiles/District-Boundaries-202404/DistrictBoundaries_SHP/dixon/AOI.shp");
 		
 /*		File files[] = new File("/home/glady/workspaces/Parcel_Cache/Hazard_Zone/other_hazard/critical_habitant/crithab_all_shapefiles/All_USA/PCH_Etheostoma_trisella_20181228/").listFiles();
 		
@@ -254,8 +254,9 @@ public class ReadShapeFile {
 		U.log("Total Count :"+count);
 		U.log("Record count :"+writeLines.size());
 		filePath = filePath.replace("AOI", "");
-
-		FileUtil.writeCsvFile(writeLines, filePath.replace("DistrictBoundaries", "DistrictBoundaries_CSV").replace(Dname+"/", "").replace(".shp", Dname+"_.csv"));
+		filePath = filePath.replace("DistrictBoundaries", "DistrictBoundaries_CSV").replace(Dname+"/", "").replace(".shp", Dname+"_.csv");
+		System.out.println(filePath);
+		FileUtil.writeCsvFile(writeLines,filePath );
 	
 	}
 	public static void main1(String argsp[]) throws IOException {

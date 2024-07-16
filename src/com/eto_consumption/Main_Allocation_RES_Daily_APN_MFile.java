@@ -12,6 +12,7 @@ import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.time.LocalDate;
 import java.time.format.DateTimeFormatter;
+import java.time.temporal.ChronoUnit;
 import java.util.ArrayList;
 import java.util.Collections;
 import java.util.HashMap;
@@ -67,6 +68,7 @@ public class Main_Allocation_RES_Daily_APN_MFile {
 	static Map<String, String> hashMapPidPoint = new HashMap<>();
 
 	static int count = 0;
+	static int TotalDataNeed = 0;
 
 	@SuppressWarnings("unchecked")
 	public static void main(String[] arg) throws Exception {
@@ -80,10 +82,10 @@ public class Main_Allocation_RES_Daily_APN_MFile {
 //		String Folder = "/home/shatam-100/workspaces/Waterview_CII_Functionalities_vncvm/waterview_resources/data_files_backup/Data_Folder_2024-06-19/WVTRABUCOCANYON" + "/";//21
 //		String Folder = "/home/shatam-100/workspaces/Waterview_CII_Functionalities_vncvm/waterview_resources/data_files_backup/Data_Folder_2024-06-19/WVVACAVILLECIT374" + "/";//19
 //		String Folder = "/home/shatam-100/workspaces/Waterview_CII_Functionalities_vncvm/waterview_resources/data_files_backup/Data_Folder_2024-06-19/WVOXNARD/";//
-		String Folder = "/home/shatam-100/Down/WaterView_Data/FTP_DATA/Data_Folder_2024-06-25/WVLASVIRGENESM189"+"/";
+		String Folder = "/home/shatam-100/Down/WaterView_Data/FTP_DATA/Data_Folder_2024-07-01/WVCALOSANGELES"+"/";
 		createConsumtionFile(Folder);
         System.out.println("Total Data Size : "+count+" | "+uniquedata.size());
-
+        System.out.println(count-TotalDataNeed);
 	}
 
 	private static void createConsumtionFile(String FolderName) throws IOException, ParseException, SQLException {
@@ -102,7 +104,7 @@ public class Main_Allocation_RES_Daily_APN_MFile {
 		String meter_locations_res = FolderName + "prd.meter_locations_res.csv";
 		String meter_locations_res_convertedData = FolderName + "prd.meter_locations_res.json";
 //        String outputjsonFile = FolderName + TableName+"_res_daily_Eto_30april.json";
-		String outputCSVFile = FolderName + TableName + "_res_daily_Eto_apn.csv";
+		String outputCSVFile = FolderName + TableName + "_res_daily_Eto_apn_15_July.csv";
 
 		FileWriter writer = new FileWriter(outputCSVFile);
 		CSVWriter csvWriter = new CSVWriter(writer);
@@ -111,10 +113,13 @@ public class Main_Allocation_RES_Daily_APN_MFile {
 //        ArrayList<String[]> als = null;
 		readAllConsumption(meter_locations_res);
 //        System.out.println(als.size());
-		LocalDate startD = LocalDate.of(2017,1, 1);
+		LocalDate startD = LocalDate.of(2024, 6, 1);
 //		LocalDate startD = LocalDate.of(2023,1, 1);
-        LocalDate endD = LocalDate.of(2018, 12, 31);
-//		LocalDate endD = LocalDate.of(2024, 5, 31);
+//        LocalDate endD = LocalDate.of(2018, 12, 31);
+		LocalDate endD = LocalDate.of(2024, 6, 30);
+        long daysBetween = ChronoUnit.DAYS.between(startD, endD);
+        System.out.println("Number of days between " + endD + " and " + startD + " is: " + daysBetween);
+
 		DateTimeFormatter formatter = DateTimeFormatter.ofPattern("yyyy-MM");
 
 		LocalDate currentMonth = startD;
@@ -126,7 +131,9 @@ public class Main_Allocation_RES_Daily_APN_MFile {
 
 		System.out.println(uniqueValues);
 		System.out.println("uniqueMeters : " + uniqueMeters.size());
-
+		System.out.println("TOTAL : " + daysBetween*uniqueMeters.size());
+		
+		 TotalDataNeed = (int) (daysBetween*uniqueMeters.size());
 		// get all sql data in hashmap
 		System.out.println(FolderName);
 		System.out.println("Added all sql data in hashmap");

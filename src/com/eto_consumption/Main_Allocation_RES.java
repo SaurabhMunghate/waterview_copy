@@ -59,7 +59,7 @@ public class Main_Allocation_RES {
 
 	@SuppressWarnings("unchecked")
 	public static void main(String[] arg) throws Exception {
-		String Folder = "/home/shatam-100/Down/WaterView_Data/FTP_DATA/Data_Folder_2024-06-27/WVSIMIVALLEY"+"/"; //No
+		String Folder = "/home/shatam-100/Down/WaterView_Data/FTP_DATA/WVSANJOSE"+"/"; //No
 
 		createConsumtionFile(Folder);
 	}
@@ -74,7 +74,7 @@ public class Main_Allocation_RES {
 //		System.out.println("Waterdistrict_ID : "+ Waterdistrict_ID); 
 		String WD_Name = getTableName(Waterdistrict_ID);
 		TableName = WD_Name.toLowerCase().trim();
-//		TableName = "Eto_DB_Tiles";
+		TableName = "san_jose";
 		System.out.println("TableName : "+ TableName);
 		String consumctionFile = FolderName + "MonthlyConsumptionRes.csv";
 		String meter_locations_res_convertedData = FolderName + "prd.meter_locations_res.json";

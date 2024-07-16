@@ -220,11 +220,13 @@ public class CSVToDatabaseBatch_SqLite {
 //		String csvFilePath = "/home/shatam-100/Cache/western14_Zoom_27_Eto_Precip_2021-01-01_To_2024-05-31_3_May_c1.csv";
 //		String csvFilePath = "/home/shatam-100/Down/WaterView_Data/Tiles/District-Boundaries-202404/DistrictBoundaries_TILES/cal_sacramento__11_Zoom_6_Eto_Precip_2021-01-01_To_2024-05-31_3_May_c1.csv";
 //		String csvFilePath = "/home/shatam-100/Down/WaterView_Data/Tiles/pomona_boundary_28__Eto_Precip_2020-01-01_To_2020-12-31_3_May_c1.csv";
+//		String csvFilePath = "/home/shatam-100/Down/WaterView_Data/Tiles/District-Boundaries-202404/DistrictBoundaries_TILES/simi_valley_11_Zoom_4_Eto_Precip_2021-01-01_To_2024-01-31_1_March_c1.csv";
+		String csvFilePath = "/home/shatam-100/Down/WaterView_Data/Tiles/cal_los_angeles_12_Zoom_6_Eto_Precip_2024-06-01_To_2024-06-30_3_May_c1.csv";
 
 		
 		
         String sqliteFilePath = "/home/shatam-100/Down/WaterView_Data/EtoDatabase.db"; // path to your SQLite database file
-        TableName ="pomona";
+        TableName ="cal_los_angeles";
         System.out.println(TableName);
         Connection connection = null;
         BufferedReader reader = null;
