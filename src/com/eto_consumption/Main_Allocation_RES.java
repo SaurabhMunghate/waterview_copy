@@ -59,9 +59,59 @@ public class Main_Allocation_RES {
 
 	@SuppressWarnings("unchecked")
 	public static void main(String[] arg) throws Exception {
-		String Folder = "/home/shatam-100/Down/WaterView_Data/FTP_DATA/WVSANJOSE"+"/"; //No
-
-		createConsumtionFile(Folder);
+//		createConsumtionFile("/home/shatam-100/Down/WaterView_Data/FTP_DATA/Data_Folder_2024-07-17/WVMONTEVISTACO226/");
+//		createConsumtionFile("/home/shatam-100/Down/WaterView_Data/FTP_DATA/Data_Folder_2024-07-17/WVCAMROSAWATER063/");
+//		createConsumtionFile("/home/shatam-100/Down/WaterView_Data/FTP_DATA/Data_Folder_2024-07-17/WVCAMARILLO/");
+//		createConsumtionFile("/home/shatam-100/Down/WaterView_Data/FTP_DATA/Data_Folder_2024-07-17/WVBELLFLOWER/");
+//		createConsumtionFile("/home/shatam-100/Down/WaterView_Data/FTP_DATA/Data_Folder_2024-07-17/WVBANNING/");
+//		createConsumtionFile("/home/shatam-100/Down/WaterView_Data/FTP_DATA/Data_Folder_2024-07-17/WVWESTERN/");
+		createConsumtionFile("/home/shatam-100/Down/WaterView_Data/FTP_DATA/Data_Folder_2024-07-17/WVWALNUTVALLEY388/");//pending
+		
+//		createConsumtionFile("/home/shatam-100/Down/WaterView_Data/FTP_DATA/Data_Folder_2024-07-17/WVVALLEJOCITYO377/");
+//		createConsumtionFile("/home/shatam-100/Down/WaterView_Data/FTP_DATA/Data_Folder_2024-07-17/WVVACAVILLECIT374/");
+//		createConsumtionFile("/home/shatam-100/Down/WaterView_Data/FTP_DATA/Data_Folder_2024-07-17/WVTRABUCOCANYON/");
+//		createConsumtionFile("/home/shatam-100/Down/WaterView_Data/FTP_DATA/Data_Folder_2024-07-17/WVSUISUN/");
+//		createConsumtionFile("/home/shatam-100/Down/WaterView_Data/FTP_DATA/Data_Folder_2024-07-17/WVSIMIVALLEY/");
+//		createConsumtionFile("/home/shatam-100/Down/WaterView_Data/FTP_DATA/Data_Folder_2024-07-17/WVSANTAMONICA/");
+//		createConsumtionFile("/home/shatam-100/Down/WaterView_Data/FTP_DATA/Data_Folder_2024-07-17/WVSANCLEMENTEC310/");//pending
+		
+//		createConsumtionFile("/home/shatam-100/Down/WaterView_Data/FTP_DATA/Data_Folder_2024-07-17/WVRUBIDOUX/");
+//		createConsumtionFile("/home/shatam-100/Down/WaterView_Data/FTP_DATA/Data_Folder_2024-07-17/WVROWLANDWATER299/");
+//		createConsumtionFile("/home/shatam-100/Down/WaterView_Data/FTP_DATA/Data_Folder_2024-07-17/WVROSEVILLE/");
+//		createConsumtionFile("/home/shatam-100/Down/WaterView_Data/FTP_DATA/Data_Folder_2024-07-17/WVRINCON/");
+//		createConsumtionFile("/home/shatam-100/Down/WaterView_Data/FTP_DATA/Data_Folder_2024-07-17/WVRIALTO/");
+		
+//		createConsumtionFile("/home/shatam-100/Down/WaterView_Data/FTP_DATA/Data_Folder_2024-07-17/WVREDWOODCITY/");
+//		createConsumtionFile("/home/shatam-100/Down/WaterView_Data/FTP_DATA/Data_Folder_2024-07-17/WVRANCHO/");
+//		createConsumtionFile("/home/shatam-100/Down/WaterView_Data/FTP_DATA/Data_Folder_2024-07-17/WVPORTERVILLE/");
+//		createConsumtionFile("/home/shatam-100/Down/WaterView_Data/FTP_DATA/Data_Folder_2024-07-17/WVPOMONA/");
+//		createConsumtionFile("/home/shatam-100/Down/WaterView_Data/FTP_DATA/Data_Folder_2024-07-17/WVOXNARD/");
+//		createConsumtionFile("/home/shatam-100/Down/WaterView_Data/FTP_DATA/Data_Folder_2024-07-17/WVORCHARDDALE/");
+//		createConsumtionFile("/home/shatam-100/Down/WaterView_Data/FTP_DATA/Data_Folder_2024-07-17/WVONTARIO/");
+//		createConsumtionFile("/home/shatam-100/Down/WaterView_Data/FTP_DATA/Data_Folder_2024-07-17/WVNIPOMO/");
+//		createConsumtionFile("/home/shatam-100/Down/WaterView_Data/FTP_DATA/Data_Folder_2024-07-17/WVMYOMADUNESMU235/");
+//		createConsumtionFile("/home/shatam-100/Down/WaterView_Data/FTP_DATA/Data_Folder_2024-07-17/WVMODESTO/");
+		
+//		createConsumtionFile("/home/shatam-100/Down/WaterView_Data/FTP_DATA/Data_Folder_2024-07-17/WVLASVIRGENESM189/"); //pending
+//		createConsumtionFile("/home/shatam-100/Down/WaterView_Data/FTP_DATA/Data_Folder_2024-07-17/WVLAKEARROWHEAD/");
+//		createConsumtionFile("/home/shatam-100/Down/WaterView_Data/FTP_DATA/Data_Folder_2024-07-17/WVINDIANWELLS/");
+//		createConsumtionFile("/home/shatam-100/Down/WaterView_Data/FTP_DATA/Data_Folder_2024-07-17/WVGLENDALECITY133/");
+//		createConsumtionFile("/home/shatam-100/Down/WaterView_Data/FTP_DATA/Data_Folder_2024-07-17/WVFOLSOM/");
+//		createConsumtionFile("/home/shatam-100/Down/WaterView_Data/FTP_DATA/Data_Folder_2024-07-17/WVFAIRFIELDCIT120/");
+		
+//		createConsumtionFile("/home/shatam-100/Down/WaterView_Data/FTP_DATA/Data_Folder_2024-07-17/WVESCONDIDO/");
+//		createConsumtionFile("/home/shatam-100/Down/WaterView_Data/FTP_DATA/Data_Folder_2024-07-17/WVEASTVALLEY/");
+//		createConsumtionFile("/home/shatam-100/Down/WaterView_Data/FTP_DATA/Data_Folder_2024-07-17/WVDIXON/");
+//		createConsumtionFile("/home/shatam-100/Down/WaterView_Data/FTP_DATA/Data_Folder_2024-07-17/WVCAVENTURA/");
+//		createConsumtionFile("/home/shatam-100/Down/WaterView_Data/FTP_DATA/Data_Folder_2024-07-17/WVCASACRAMENTO/");
+//		createConsumtionFile("/home/shatam-100/Down/WaterView_Data/FTP_DATA/Data_Folder_2024-07-17/WVCARLSBAD/");
+		
+//		createConsumtionFile("/home/shatam-100/Down/WaterView_Data/FTP_DATA/Data_Folder_2024-07-17/WVCALOSANGELES/");
+//		createConsumtionFile("/home/shatam-100/Down/WaterView_Data/FTP_DATA/Data_Folder_2024-07-17/WVBRENTWOOD/");
+//		createConsumtionFile("/home/shatam-100/Down/WaterView_Data/FTP_DATA/Data_Folder_2024-07-17/NORCOCITYOFW242/");
+//		createConsumtionFile("/home/shatam-100/Down/WaterView_Data/FTP_DATA/Data_Folder_2024-07-17/WVSANGABRIELCOUNTY/");
+//		createConsumtionFile("/home/shatam-100/Down/WaterView_Data/FTP_DATA/Data_Folder_2024-07-17/WVMONTECITO/");//MonthlyConsumptionRes.csv (No such file or directory)
+//		createConsumtionFile("/home/shatam-100/Down/WaterView_Data/FTP_DATA/Data_Folder_2024-07-17/SANTABARBARA327/");//MonthlyConsumptionRes.csv (No such file or directory)
 	}
 
 	private static void createConsumtionFile(String FolderName) throws IOException, ParseException, SQLException {
@@ -71,10 +121,10 @@ public class Main_Allocation_RES {
 
 		String[] st = FolderName.split("/");
 		String Waterdistrict_ID = st[st.length-1];
-//		System.out.println("Waterdistrict_ID : "+ Waterdistrict_ID); 
+		System.out.println("Waterdistrict_ID : "+ Waterdistrict_ID); 
 		String WD_Name = getTableName(Waterdistrict_ID);
 		TableName = WD_Name.toLowerCase().trim();
-		TableName = "san_jose";
+//		TableName = "san_jose";
 		System.out.println("TableName : "+ TableName);
 		String consumctionFile = FolderName + "MonthlyConsumptionRes.csv";
 		String meter_locations_res_convertedData = FolderName + "prd.meter_locations_res.json";
@@ -255,6 +305,7 @@ public class Main_Allocation_RES {
         String waterDistrictId = null;
         String waterDistrictName = null;
         try (BufferedReader br = new BufferedReader(new FileReader(filePath))) {
+//        	System.out.println("Waterdistrict_ID :: "+Waterdistrict_ID);
             // Parse the JSON content
             JsonParser parser = new JsonParser();
             JsonObject jsonObject = parser.parse(br).getAsJsonObject();
@@ -267,9 +318,11 @@ public class Main_Allocation_RES {
             for (JsonElement element : waterDistrictTables) {
                 JsonObject districtObject = element.getAsJsonObject();
                 String currentId = districtObject.get("Waterdistrict_ID").getAsString();
+//                System.out.println(currentId);
                 if (Waterdistrict_ID.equals(currentId)) {
                     waterDistrictId = currentId;
                     waterDistrictName = districtObject.get("Waterdistrict_Name").getAsString();
+                    System.out.println(waterDistrictName);
                     break;
                 }
             }
@@ -279,7 +332,7 @@ public class Main_Allocation_RES {
                 System.out.println("waterDistrictName : " + waterDistrictName);
                 return waterDistrictName;
             } else {
-                System.out.println("WaterDistrict_ID for WVMONTEVISTACO226 not found.");
+                System.out.println("WaterDistrict_ID for "+waterDistrictId+" not found.");
             }
 
         } catch (IOException e) {
