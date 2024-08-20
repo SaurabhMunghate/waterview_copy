@@ -43,7 +43,7 @@ import com.vividsolutions.jts.io.WKTReader;
 
 import tech.units.indriya.AbstractSystemOfUnits;
 
-public class Main_Allocation_RES {
+public class Main_Allocation_RESs_1 {
 	static ArrayList<Geometry> tiles = new ArrayList<Geometry>();
 	static Map<String, Double> allETO = new HashMap<>();
 	private static final JSONParser parser = new JSONParser();
@@ -112,8 +112,7 @@ public class Main_Allocation_RES {
 //		createConsumtionFile("/home/shatam-100/Down/WaterView_Data/FTP_DATA/Data_Folder_2024-07-17/WVSANGABRIELCOUNTY/");
 //		createConsumtionFile("/home/shatam-100/Down/WaterView_Data/FTP_DATA/Data_Folder_2024-07-17/WVMONTECITO/");//MonthlyConsumptionRes.csv (No such file or directory)
 //		createConsumtionFile("/home/shatam-100/Down/WaterView_Data/FTP_DATA/Data_Folder_2024-07-17/SANTABARBARA327/");//MonthlyConsumptionRes.csv (No such file or directory)
-		createConsumtionFile("/home/shatam-100/Down/WaterView_Data/FTP_DATA/Data_Folder_2024-08-14/WVWALNUTVALLEY388");
-
+		createConsumtionFile("/home/shatam-100/Down/WaterView_Data/FTP_DATA/Data_Folder_2024-08-07/WVWALNUTVALLEY388");
 	}
 
 	private static void createConsumtionFile(String FolderName) throws IOException, ParseException, SQLException {
@@ -151,7 +150,6 @@ public class Main_Allocation_RES {
 		// get all sql data in hashmap
 		System.out.println(FolderName);
 		System.out.println("Added all sql data in hashmap");
-		
 		run();
 
 		ObjectMapper objectMapper = new ObjectMapper();
@@ -167,21 +165,41 @@ public class Main_Allocation_RES {
 
 		Map<String, String> hashMapPidPoint = new HashMap<>();
 		System.out.println("Adding data in hash Map :: Pid Point");
-		File convertedData = new File(meter_locations_res_convertedData);
-
-		JsonNode jsonNode = objectMapper.readTree(convertedData);
-		if (jsonNode.isArray()) {
-			for (JsonNode objNode : jsonNode) {
-				// meter locations res MeterID the_geom
-				String meterID = objNode.get("meterID").asText();
-				String theGeom = objNode.get("the_geom").asText();
+//		File convertedData = new File(meter_locations_res_convertedData);
+//
+//		JsonNode jsonNode = objectMapper.readTree(convertedData);
+//		if (jsonNode.isArray()) {
+//			for (JsonNode objNode : jsonNode) {
+//				// meter locations res MeterID the_geom
 //				String meterID = objNode.get("meterID").asText();
-//				String theGeom = objNode.get("updatedpoly").asText();
-//				String theGeom = objNode.get("geometry").asText();
-//				if(!meterID.contains("100604")) continue;
-				hashMapPidPoint.put(meterID, theGeom);
-			}
-		}
+//				String theGeom = objNode.get("the_geom").asText();
+////				String meterID = objNode.get("meterID").asText();
+////				String theGeom = objNode.get("updatedpoly").asText();
+////				String theGeom = objNode.get("geometry").asText();
+////				if(!meterID.contains("100604")) continue;
+//				hashMapPidPoint.put(meterID, theGeom);
+//			}
+//		}
+        try (BufferedReader br = new BufferedReader(new FileReader(new File(meter_locations_res_convertedData)))) {
+            String line;
+            boolean isFirstLine = true;
+            
+            while ((line = br.readLine()) != null) {
+                // Skip the header line
+                if (isFirstLine) {
+                    isFirstLine = false;
+                    continue;
+                }
+                
+                String[] values = line.split(",");
+                String meterID = values[0];
+                String theGeom = values[1];
+                
+                hashMapPidPoint.put(meterID, theGeom);
+            }
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
 		System.out.println("Hash Map Creation Completed");
 //		String[] header = { "Date", "premid", "PreTile", "Eto", "Tile" };
 		String[] header = { "Date", "APN", "PreTile", "Eto", "Tile", "Consumtion" };

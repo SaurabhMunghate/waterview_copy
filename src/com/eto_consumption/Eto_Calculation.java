@@ -31,15 +31,16 @@ import com.vividsolutions.jts.io.WKTReader;
 public class Eto_Calculation {
     static ArrayList<String> dataList = new ArrayList<>();
     static ArrayList<Geometry> tiles = new ArrayList<Geometry>();
-
-	static String txtFile = "/home/shatam-100/Down/WaterView_Data/Tiles/Califonia_14_Zoom.txt";
+    
+	static String txtFile = "/home/shatam-100/Down/WaterView_Data/Tiles/Califonia_15_Zoom.txt";
+//	static String txtFile = "/home/shatam-100/Down/WaterView_Data/Tiles/Califonia_14_Zoom.txt";
 //	static String txtFile = "/home/shatam-100/Down/WaterView_Data/Tiles/Califonia_13_zoom.txt";
 //	static String txtFile = "/home/shatam-100/Down/WaterView_Data/Tiles/Califonia_12_zoom.txt";
 //    static String txtFile = "/home/shatam-100/Down/WaterView_Data/Tiles/Califonia_11_zoom.txt";
 //    static String txtFile = "/home/shatam-100/Down/WaterView_Data/Tiles/Califonia_10_zoom.txt";
 //    static String txtFile = "/home/shatam-100/Down/WaterView_Data/Tiles/Califonia_9_zoom.txt";
 //    static String txtFile = "/home/shatam-100/Down/WaterView_Data/Tiles/Califonia_8_zoom.txt";
-    static String zoom = "14";
+    static String zoom = "15";
 
     private static String readGeoJSONFile(String filePath) throws IOException {
         Path path = Paths.get(filePath);
@@ -48,6 +49,7 @@ public class Eto_Calculation {
     }
 
 	public static void main(String[] arg) throws SQLException, ParseException, IOException {
+//      String allcsv = "/home/shatam-100/Down/WaterView_Data/Tiles/District-Boundaries-202404/DistrictBoundaries_geojson";
 
 //		System.out.println(allcsv);
 //        String outputDirectory = "/home/shatam-100/Down/WaterView_Data/FTP_DATA/18_March_WD/Data_Folder_2024-03-17/WVWESTERN";
@@ -65,9 +67,57 @@ public class Eto_Calculation {
 //			}
 //		}
 		
+//		CreatTilesofBound("/home/shatam-100/Down/WaterView_Data/Tiles/District-Boundaries-202404/DistrictBoundaries_geojson/banning_.geojson");
+//		CreatTilesofBound("/home/shatam-100/Down/WaterView_Data/Tiles/District-Boundaries-202404/DistrictBoundaries_geojson/bellflower_.geojson");
+//		CreatTilesofBound("/home/shatam-100/Down/WaterView_Data/Tiles/District-Boundaries-202404/DistrictBoundaries_geojson/beverly_hills_.geojson");
+//		CreatTilesofBound("/home/shatam-100/Down/WaterView_Data/Tiles/District-Boundaries-202404/DistrictBoundaries_geojson/brentwood_.geojson");
+//		CreatTilesofBound("/home/shatam-100/Down/WaterView_Data/Tiles/District-Boundaries-202404/DistrictBoundaries_geojson/cal_los_angeles_.geojson");
+//		CreatTilesofBound("/home/shatam-100/Down/WaterView_Data/Tiles/District-Boundaries-202404/DistrictBoundaries_geojson/cal_sacramento_.geojson");
+//		CreatTilesofBound("/home/shatam-100/Down/WaterView_Data/Tiles/District-Boundaries-202404/DistrictBoundaries_geojson/cal_ventura_.geojson");
+//		CreatTilesofBound("/home/shatam-100/Down/WaterView_Data/Tiles/District-Boundaries-202404/DistrictBoundaries_geojson/camarillo_.geojson");
+//		CreatTilesofBound("/home/shatam-100/Down/WaterView_Data/Tiles/District-Boundaries-202404/DistrictBoundaries_geojson/camrosa_.geojson");
+//		CreatTilesofBound("/home/shatam-100/Down/WaterView_Data/Tiles/District-Boundaries-202404/DistrictBoundaries_geojson/carlsbad_.geojson");
+//		CreatTilesofBound("/home/shatam-100/Down/WaterView_Data/Tiles/District-Boundaries-202404/DistrictBoundaries_geojson/casitas_.geojson");
+//		CreatTilesofBound("/home/shatam-100/Down/WaterView_Data/Tiles/District-Boundaries-202404/DistrictBoundaries_geojson/east_valley_.geojson");
+//		CreatTilesofBound("/home/shatam-100/Down/WaterView_Data/Tiles/District-Boundaries-202404/DistrictBoundaries_geojson/escondido_.geojson");
+//		CreatTilesofBound("/home/shatam-100/Down/WaterView_Data/Tiles/District-Boundaries-202404/DistrictBoundaries_geojson/fairfield_.geojson");
+//		CreatTilesofBound("/home/shatam-100/Down/WaterView_Data/Tiles/District-Boundaries-202404/DistrictBoundaries_geojson/folsom_.geojson");
+//		CreatTilesofBound("/home/shatam-100/Down/WaterView_Data/Tiles/District-Boundaries-202404/DistrictBoundaries_geojson/glendale_.geojson");
+//		CreatTilesofBound("/home/shatam-100/Down/WaterView_Data/Tiles/District-Boundaries-202404/DistrictBoundaries_geojson/indian_wells_.geojson");
+//		CreatTilesofBound("/home/shatam-100/Down/WaterView_Data/Tiles/District-Boundaries-202404/DistrictBoundaries_geojson/lake_arrowhead_.geojson");
+//		CreatTilesofBound("/home/shatam-100/Down/WaterView_Data/Tiles/District-Boundaries-202404/DistrictBoundaries_geojson/las_virgenes_.geojson");
+//		CreatTilesofBound("/home/shatam-100/Down/WaterView_Data/Tiles/District-Boundaries-202404/DistrictBoundaries_geojson/modesto_.geojson");
+//		CreatTilesofBound("/home/shatam-100/Down/WaterView_Data/Tiles/District-Boundaries-202404/DistrictBoundaries_geojson/montecito_.geojson");
+//		CreatTilesofBound("/home/shatam-100/Down/WaterView_Data/Tiles/District-Boundaries-202404/DistrictBoundaries_geojson/monte_vista_.geojson");
+//		CreatTilesofBound("/home/shatam-100/Down/WaterView_Data/Tiles/District-Boundaries-202404/DistrictBoundaries_geojson/myoma_dunes_.geojson");
+//		CreatTilesofBound("/home/shatam-100/Down/WaterView_Data/Tiles/District-Boundaries-202404/DistrictBoundaries_geojson/newman_.geojson");
+//		CreatTilesofBound("/home/shatam-100/Down/WaterView_Data/Tiles/District-Boundaries-202404/DistrictBoundaries_geojson/nipomo_.geojson");
+//		CreatTilesofBound("/home/shatam-100/Down/WaterView_Data/Tiles/District-Boundaries-202404/DistrictBoundaries_geojson/norco_.geojson");
+//		CreatTilesofBound("/home/shatam-100/Down/WaterView_Data/Tiles/District-Boundaries-202404/DistrictBoundaries_geojson/olivenhain_.geojson");
+//		CreatTilesofBound("/home/shatam-100/Down/WaterView_Data/Tiles/District-Boundaries-202404/DistrictBoundaries_geojson/ontario_.geojson");
+//		CreatTilesofBound("/home/shatam-100/Down/WaterView_Data/Tiles/District-Boundaries-202404/DistrictBoundaries_geojson/orchard_dale_.geojson");
+//		CreatTilesofBound("/home/shatam-100/Down/WaterView_Data/Tiles/District-Boundaries-202404/DistrictBoundaries_geojson/oxnard_.geojson");
+//		CreatTilesofBound("/home/shatam-100/Down/WaterView_Data/Tiles/District-Boundaries-202404/DistrictBoundaries_geojson/pomona_.geojson");
+//		CreatTilesofBound("/home/shatam-100/Down/WaterView_Data/Tiles/District-Boundaries-202404/DistrictBoundaries_geojson/porterville_.geojson");
+//		CreatTilesofBound("/home/shatam-100/Down/WaterView_Data/Tiles/District-Boundaries-202404/DistrictBoundaries_geojson/rancho_.geojson");
+//		CreatTilesofBound("/home/shatam-100/Down/WaterView_Data/Tiles/District-Boundaries-202404/DistrictBoundaries_geojson/redwood_city_.geojson");
+//		CreatTilesofBound("/home/shatam-100/Down/WaterView_Data/Tiles/District-Boundaries-202404/DistrictBoundaries_geojson/rialto_.geojson");
+//		CreatTilesofBound("/home/shatam-100/Down/WaterView_Data/Tiles/District-Boundaries-202404/DistrictBoundaries_geojson/rincon_.geojson");
+//		CreatTilesofBound("/home/shatam-100/Down/WaterView_Data/Tiles/District-Boundaries-202404/DistrictBoundaries_geojson/roseville_.geojson");
+//		CreatTilesofBound("/home/shatam-100/Down/WaterView_Data/Tiles/District-Boundaries-202404/DistrictBoundaries_geojson/rowland_.geojson");
+//		CreatTilesofBound("/home/shatam-100/Down/WaterView_Data/Tiles/District-Boundaries-202404/DistrictBoundaries_geojson/rubidoux_.geojson");
+//		CreatTilesofBound("/home/shatam-100/Down/WaterView_Data/Tiles/District-Boundaries-202404/DistrictBoundaries_geojson/san_clemente_.geojson");
+//		CreatTilesofBound("/home/shatam-100/Down/WaterView_Data/Tiles/District-Boundaries-202404/DistrictBoundaries_geojson/san_gabriel_county_.geojson");
+//		CreatTilesofBound("/home/shatam-100/Down/WaterView_Data/Tiles/District-Boundaries-202404/DistrictBoundaries_geojson/san_luis_obispo_.geojson");
+//		CreatTilesofBound("/home/shatam-100/Down/WaterView_Data/Tiles/District-Boundaries-202404/DistrictBoundaries_geojson/santa_barbara_.geojson");
+//		CreatTilesofBound("/home/shatam-100/Down/WaterView_Data/Tiles/District-Boundaries-202404/DistrictBoundaries_geojson/santa_monica_.geojson");
+//		CreatTilesofBound("/home/shatam-100/Down/WaterView_Data/Tiles/District-Boundaries-202404/DistrictBoundaries_geojson/simi_valley_.geojson");
+//		CreatTilesofBound("/home/shatam-100/Down/WaterView_Data/Tiles/District-Boundaries-202404/DistrictBoundaries_geojson/suisun_.geojson");
+//		CreatTilesofBound("/home/shatam-100/Down/WaterView_Data/Tiles/District-Boundaries-202404/DistrictBoundaries_geojson/trabuco_canyon_.geojson");
+//		CreatTilesofBound("/home/shatam-100/Down/WaterView_Data/Tiles/District-Boundaries-202404/DistrictBoundaries_geojson/vacaville_.geojson");
 //		CreatTilesofBound("/home/shatam-100/Down/WaterView_Data/Tiles/District-Boundaries-202404/DistrictBoundaries_geojson/vallejo_.geojson");
-		CreatTilesofBound("/home/shatam-100/Down/WaterView_Data/Tiles/District-Boundaries-202404/DistrictBoundaries_geojson/san_clemente_.geojson");
-
+//		CreatTilesofBound("/home/shatam-100/Down/WaterView_Data/Tiles/District-Boundaries-202404/DistrictBoundaries_geojson/walnut_valley_.geojson");
+		CreatTilesofBound("/home/shatam-100/Down/WaterView_Data/Tiles/District-Boundaries-202404/DistrictBoundaries_geojson/western_.geojson");
 
 	}
 

@@ -15,7 +15,7 @@ import com.fasterxml.jackson.dataformat.csv.CsvSchema;
 public class CSVToJSon {
 
 	public static void main(String[] arg) throws Exception {
-		String csvfile = "/home/shatam-100/Down/WaterView_Data/FTP_DATA/sql_file/users_district.csv";
+		String csvfile = "/home/shatam-100/Down/WaterView_Data/FTP_DATA/Data_Folder_2024-08-05/WVCASITAS/prd.meter_locations_res.csv";
 		csvToJSON(csvfile,csvfile);
 	}
 

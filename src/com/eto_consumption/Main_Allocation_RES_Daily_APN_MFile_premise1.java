@@ -77,7 +77,7 @@ public class Main_Allocation_RES_Daily_APN_MFile_premise1 {
 
 	@SuppressWarnings("unchecked")
 	public static void main(String[] arg) throws Exception {
-		String Folder = "/home/shatam-100/Down/WaterView_Data/FTP_DATA/Data_Folder_2024-07-01/WVBRENTWOOD" + "/";
+		String Folder = "/home/shatam-100/Down/WaterView_Data/FTP_DATA/Data_Folder_2024-07-17/WVLASVIRGENESM189" + "/";
 		createConsumtionFile(Folder);
 		System.out.println("Total Data Size : " + count + " | " + uniquedata.size());
 		System.out.println("NULL : " + NULL);

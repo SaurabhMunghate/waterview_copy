@@ -12,6 +12,7 @@ import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.time.LocalDate;
 import java.time.format.DateTimeFormatter;
+import java.time.temporal.ChronoUnit;
 import java.util.ArrayList;
 import java.util.Collections;
 import java.util.HashMap;
@@ -26,7 +27,6 @@ import java.util.concurrent.ForkJoinPool;
 
 import javax.measure.spi.SystemOfUnits;
 
-import org.apache.commons.math3.analysis.function.Add;
 import org.json.simple.JSONArray;
 import org.json.simple.JSONObject;
 import org.json.simple.parser.JSONParser;
@@ -47,7 +47,7 @@ import com.vividsolutions.jts.io.WKTReader;
 
 import tech.units.indriya.AbstractSystemOfUnits;
 
-public class Main_Allocation_RES_Daily_APN_MFile_premise {
+public class get_eto_of_parcels_res {
 	static ArrayList<Geometry> tiles = new ArrayList<Geometry>();
 	static Map<String, Double> allETO = new HashMap<>();
 	private static final JSONParser parser = new JSONParser();
@@ -55,11 +55,6 @@ public class Main_Allocation_RES_Daily_APN_MFile_premise {
 //  private static final String premiseFile = "/home/shatam-100/Down/WaterView_Data/meter_locations_res_montevista.json";
 //  static List<String[]> arrayListOfArrays = new ArrayList<>();
 	static Map<String, String[]> hashMapOfArrays = new HashMap<>();
-
-	static Map<String, String> check1 = new HashMap<>();
-	static Map<String, String> check2 = new HashMap<>();
-
-	
 	static Map<String, String> etonotfoun = new HashMap<>();
 	static ArrayList<String[]> consmData = new ArrayList<>();
 	static String sqliteFilePath = "/home/shatam-100/Down/WaterView_Data/EtoDatabase.db"; // Replace with your SQLite //
@@ -73,28 +68,14 @@ public class Main_Allocation_RES_Daily_APN_MFile_premise {
 	static Map<String, String> hashMapPidPoint = new HashMap<>();
 
 	static int count = 0;
-	static int NULL = 0;
+	static int TotalDataNeed = 0;
 
 	@SuppressWarnings("unchecked")
 	public static void main(String[] arg) throws Exception {
-		String Folder = "/home/shatam-100/Down/WaterView_Data/FTP_DATA/Data_Folder_2024-07-17/WVLASVIRGENESM189" + "/";
+		String Folder = "/home/shatam-100/Down/WaterView_Data/FTP_DATA/Data_Folder_2024-07-17/WVEASTVALLEY"+"/";
 		createConsumtionFile(Folder);
-		System.out.println("Total Data Size : " + count + " | " + uniquedata.size());
-		System.out.println("NULL : " + NULL);
-//		System.out.println(check1.size());
-//		System.out.println(check2.size());
-//        for (Map.Entry<String, String> entry : check1.entrySet()) {
-//            String key = entry.getKey();
-//            String value = entry.getValue();
-//            System.out.println("Key1: " + key );
-//        }
-//        for (Map.Entry<String, String> entry : check2.entrySet()) {
-//            String key = entry.getKey();
-//            String value = entry.getValue();
-//            System.out.println("Key2: " + key );
-//        }
-
-
+        System.out.println("Total Data Size : "+count+" | "+uniquedata.size());
+        System.out.println(count-TotalDataNeed);
 	}
 
 	private static void createConsumtionFile(String FolderName) throws IOException, ParseException, SQLException {
@@ -108,25 +89,27 @@ public class Main_Allocation_RES_Daily_APN_MFile_premise {
 //      System.out.println("Waterdistrict_ID : "+ Waterdistrict_ID); 
 		String WD_Name = getTableName(Waterdistrict_ID);
 		TableName = WD_Name.toLowerCase().trim();
-//      TableName = "Eto_DB_Tiles";
+//          TableName = "san_jose";
 		System.out.println("TableName" + TableName);
-		String meter_locations_res = FolderName + "prd.parcels_res.csv";
-		String meter_locations_res_convertedData = FolderName + "prd.parcels_res.json";
+		String parcels_res = FolderName + "prd.parcels_res.csv";
+		String parcels_res_json = FolderName + "prd.parcels_res.json";
 //        String outputjsonFile = FolderName + TableName+"_res_daily_Eto_30april.json";
-		String outputCSVFile = FolderName + TableName + "_res_daily_Eto_apn.csv";
+		String outputCSVFile = FolderName + TableName + "_res_daily_Eto_apn_16_Aug.csv";	
 
 		FileWriter writer = new FileWriter(outputCSVFile);
 		CSVWriter csvWriter = new CSVWriter(writer);
 
 		// Reading consumction File
 //        ArrayList<String[]> als = null;
-		readAllConsumption(meter_locations_res);
+		readAllConsumption(parcels_res);
 //        System.out.println(als.size());
-//		LocalDate startD = LocalDate.of(2019, 1, 1);
-		LocalDate startD = LocalDate.of(2024, 4, 1);
-//        LocalDate endD = LocalDate.of(2020, 12, 31);
-		LocalDate endD = LocalDate.of(2024, 5, 31);
-//		LocalDate endD = LocalDate.of(2020,12, 31);
+		LocalDate startD = LocalDate.of(2021, 1, 1);
+//		LocalDate startD = LocalDate.of(2022,1, 1);
+//        LocalDate endD = LocalDate.of(2022, 12, 31);
+		LocalDate endD = LocalDate.of(2024,7, 31);
+        long daysBetween = ChronoUnit.DAYS.between(startD, endD);
+        System.out.println("Number of days between " + endD + " and " + startD + " is: " + daysBetween);
+
 		DateTimeFormatter formatter = DateTimeFormatter.ofPattern("yyyy-MM");
 
 		LocalDate currentMonth = startD;
@@ -138,12 +121,14 @@ public class Main_Allocation_RES_Daily_APN_MFile_premise {
 
 		System.out.println(uniqueValues);
 		System.out.println("uniqueMeters : " + uniqueMeters.size());
-
+		System.out.println("TOTAL : " + daysBetween*uniqueMeters.size());
+		
+		 TotalDataNeed = (int) (daysBetween*uniqueMeters.size());
 		// get all sql data in hashmap
 		System.out.println(FolderName);
 		System.out.println("Added all sql data in hashmap");
-		getAllUniqueTileSqlite(tiles);
-		System.out.println("tiles : " + tiles.size());
+        getAllUniqueTileSqlite(tiles);
+        System.out.println("tiles : "+tiles.size());
 		run();
 
 		ObjectMapper objectMapper = new ObjectMapper();
@@ -158,26 +143,26 @@ public class Main_Allocation_RES_Daily_APN_MFile_premise {
 
 //        Map<String, String> hashMapPidPoint = new HashMap<>();
 		System.out.println("Adding data in hash Map :: Pid Point");
-		File convertedData = new File(meter_locations_res_convertedData);
+		File convertedData = new File(parcels_res_json);
 
 		JsonNode jsonNode = objectMapper.readTree(convertedData);
 		if (jsonNode.isArray()) {
 			for (JsonNode objNode : jsonNode) {
 				// meter locations res MeterID the_geom
-				String meterID = objNode.get("APN").asText();
+//				String meterID = objNode.get("meterID").asText();
 				String theGeom = objNode.get("the_geom").asText();
 				String APN = objNode.get("APN").asText();
 //              String theGeom = objNode.get("updatedpoly").asText();
 //              String theGeom = objNode.get("geometry").asText();
 //              if(!meterID.contains("260250")) continue;
 //				if(meterID.contains("meterID")) continue;
-				hashMapPidPoint.put(meterID, theGeom + "/" + APN);
+				hashMapPidPoint.put(APN, theGeom + "/" + APN);
 			}
 		}
 		System.out.println("Hash Map Creation Completed");
 //      String[] header = { "Date", "premid", "PreTile", "Eto", "Tile" };
 //		String[] header = { "Date", "APN", "Eto" }; //MeterID,ET_Value,Date,Source
-		String[] header = { "APN", "ET_Value", "Date", "LoadDate", "Source" }; // MeterID,ET_Value,Date,Source
+		String[] header = { "APN","ET_Value","Date","LoadDate","Source"}; //MeterID,ET_Value,Date,Source
 
 		csvWriter.writeNext(header);
 		int i = 0;
@@ -192,16 +177,8 @@ public class Main_Allocation_RES_Daily_APN_MFile_premise {
 			LocalDate currentM = startD;
 			while (!currentM.isAfter(endD)) {
 //                System.out.println(meter+" | "+formatter.format(currentM));
-				try {
-					getDailyEto(meter, formatter.format(currentM), csvWriter);
-					currentM = currentM.plusMonths(1);
-//					break;
-				} catch (Exception e) {
-					System.out.println(tempCounter);
-					e.printStackTrace();
-//					break;
-					// TODO: handle exception
-				}
+				getDailyEto(meter, formatter.format(currentM), csvWriter);
+				currentM = currentM.plusMonths(1);
 			}
 		}
 		System.out.println(outputCSVFile);
@@ -214,8 +191,6 @@ public class Main_Allocation_RES_Daily_APN_MFile_premise {
 
 	}
 
-	static int tempCounter = 0;
-
 	private static void getDailyEto(String meter, String date, CSVWriter csvWriter) throws ParseException {
 		// TODO Auto-generated method stub
 		WKTReader wktReader = new WKTReader();
@@ -227,7 +202,6 @@ public class Main_Allocation_RES_Daily_APN_MFile_premise {
 //		if (meter.contains("meter_uid"))
 //			continue;
 		String theGeom = "";
-//		System.out.println(meter+hashMapPidPoint.get(meter).toString().split("/")[1]);
 		try {
 			String[] theGeomValue = hashMapPidPoint.get(meter).toString().split("/");
 			APN_val = theGeomValue[1];
@@ -235,54 +209,30 @@ public class Main_Allocation_RES_Daily_APN_MFile_premise {
 		} catch (Exception e) {
 			System.out.println(meter + "   |   " + date);
 //			i++;
-//			return;
 //			continue;
 		}
 
 		String myPreTile = "";
-		if (theGeom.contains("null"))
-			return;
+		if(theGeom.contains("null"))return;
 
-		premise = wktReader.read(theGeom.trim());
+		premise = wktReader.read(theGeom);
 		int k = 0;
 		String tile = "";
 //		try {
 
-//		for (Geometry g : tiles) {
-////			System.out.println(g);
-////			System.out.println(premise);
-//			if(g==null)continue;
-////			try {
-//				g.intersects(premise);
-////			} catch (Exception e) {
-////				continue;
-////			}
-//			if (g.intersects(premise)) {
-//				myPreTile = g.toString();
-//				k++;
-//			}
-//		}
-//		String sss = "POLYGON ((-121.90567016601562 38.34273329203373,-121.9049835205078 37.99886819160375,-122.43576049804688 37.995621565376595,-122.43164062499999 38.34273329203373,-121.90567016601562 38.34273329203373))";
-
-//		Geometry HHH = 	wktReader.read(sss.trim());
-
 		for (Geometry g : tiles) {
-//		System.out.println(tempCounter++;);
-			// System.out.println("premise : "+premise);
-//			System.out.println("g : "+g);
-
-//			tempCounter++;
-//			if (g == null)
-//				continue;
-			if (premise == null)
+//			System.out.println(g);
+//			System.out.println(premise);
+			try {
+				g.intersects(premise);
+			} catch (Exception e) {
 				continue;
+			}
 			if (g.intersects(premise)) {
 				myPreTile = g.toString();
-//		        System.out.println(myPreTile+date);
 				k++;
 			}
 		}
-//		myPreTile = "POLYGON ((-121.90567016601562 38.34273329203373,-121.9049835205078 37.99886819160375,-122.43576049804688 37.995621565376595,-122.43164062499999 38.34273329203373,-121.90567016601562 38.34273329203373))";
 
 //		} catch (Exception e) {
 //			// TODO: handle exception
@@ -291,30 +241,23 @@ public class Main_Allocation_RES_Daily_APN_MFile_premise {
 
 		String avgETo = "";
 		String key = myPreTile + date.replace("", "");
-//		key = key.trim().replaceAll(",-12", ", -12").replace("POLYGON (( ", "POLYGON ((");
-//		System.out.println(hashMapOfArrays.get(key.trim())[0]);
-		
+
+		key = key.trim();
+//		System.out.println(key);
 
 		String[] gethashvalue1 = hashMapOfArrays.get(key.trim());
 
 		if (gethashvalue1 == null) {
-//			System.out.println("key "+key);
-//			key
-//			check1.put(key, key);
 //			System.out.println("NULL");
-			NULL++;
 			return;
-			
 		}
 		;
 		for (String day : gethashvalue1) {
 //			System.out.println("day : "+day);
-			
-//			
 			if (day == null || day.length() < 1) {
 				continue;
 			}
-
+			
 			String[] DEto = day.split(",");
 			String date_apn = DEto[0] + "_" + APN_val; // Combining DEto[0] and meter to create a unique key
 
@@ -331,9 +274,7 @@ public class Main_Allocation_RES_Daily_APN_MFile_premise {
 //			String[] row = { DEto[0], APN_val, DEto[1] };
 			String eto_val = DEto[1];
 			String Da = DEto[0];
-			String[] row = { APN_val, eto_val, Da, "", "" }; // "APN","ET_Value","LoadDate","Date","Source"
-//			System.out.println( APN_val+eto_val+Da+""+ "" );
-
+			String[] row = { APN_val,eto_val,Da,"", "" }; // "APN","ET_Value","LoadDate","Date","Source"
 			csvWriter.writeNext(row);
 			count++;
 		}
@@ -486,10 +427,10 @@ public class Main_Allocation_RES_Daily_APN_MFile_premise {
 				lineNumber++;
 				String[] values = line.split(",");
 				if (values.length >= 3) {
-					String mid = values[0];
+					String APN = values[0];
 //                    String date = values[1];
 //                    String consumption = values[2];
-					if (values[1].contains("year")) {
+					if (values[0].contains("APN")) {
 						continue;
 					}
 					try {
@@ -498,7 +439,7 @@ public class Main_Allocation_RES_Daily_APN_MFile_premise {
 						// TODO: handle exception
 					}
 //                    uniqueValues.add(values[1].substring(0, 4));
-					uniqueMeters.add(mid);
+					uniqueMeters.add(APN);
 //                  System.out.println(lineNumber + " | Mid: " + mid);
 //                    consmData.add(new String[] { mid, date, consumption });
 				} else {
@@ -577,7 +518,7 @@ public class Main_Allocation_RES_Daily_APN_MFile_premise {
 			// You can now process the results in the 'resultSet'
 			while (resultSet.next()) {
 				String tile = resultSet.getString("Tiles");
-				System.out.println(tile.trim());
+//              System.out.println(tile.trim());
 				til.add(wktReader.read(tile.trim()));
 			}
 		} catch (ClassNotFoundException | SQLException e) {
@@ -618,27 +559,18 @@ public class Main_Allocation_RES_Daily_APN_MFile_premise {
 
 		for (String st : uniqueValues) {
 
-			System.out.println(st);
+//              System.out.println(st); 
 			for (String month : months) {
 
 				String date = st.trim() + "-" + month;
 				String da = date;
 //                    System.out.println(da);
 
-//				String sql = "SELECT Date, Precip, ET_Value, Tiles FROM " + TableName + " WHERE (" + whereClause
-//						+ ") AND Date LIKE ?";
 				String sql = "SELECT Date, Precip, ET_Value, Tiles FROM " + TableName + " WHERE (" + whereClause
 						+ ") AND Date LIKE ?";
-
 //                    System.out.println(sql);
-				String st_geometry = geometry.toString().trim();
-				st_geometry = st_geometry.replaceAll("POLYGON ", "POLYGON").replaceAll(" -1", "-1");
-				
-        		System.out.println("SELECT Date, Precip, ET_Value, Tiles FROM "+TableName+" WHERE ("+st_geometry+") AND Date LIKE "+da);
-//        		System.out.println(st_geometry);
-
 				preparedStatement = connection.prepareStatement(sql);
-				preparedStatement.setString(1, st_geometry);
+				preparedStatement.setString(1, geometry.toString().trim());
 				preparedStatement.setString(2, "%" + da + "%");
 				resultSet = preparedStatement.executeQuery();
 				Double ET_Value = 0.0000;
@@ -661,17 +593,15 @@ public class Main_Allocation_RES_Daily_APN_MFile_premise {
 
 					i++;
 				}
-                  System.out.println("System.out.println :: "+i);
+//                  System.out.println("System.out.println :: "+i);
 //                  System.out.println(" avgeto ::: "+avgeto/i + " | "+geometry.toString()+" | "+da);
 //                  String[] arr = { da, (avgeto) + "" };
 				String key = geometry + date;
 //                  System.out.println(avgeto / i);
-//                  System.out.println(key.trim());
-
+//                  System.out.println(key);
 //                  System.out.println(arr[0]+"  |  "+arr[1]);
 //                  hashMapOfArrays.put(key.trim(), arr);
 //                    System.out.println(daily[0]);
-//				check2.put(key, key);
 				hashMapOfArrays.put(key.trim(), daily);
 			}
 //                break;

@@ -82,7 +82,7 @@ public class Main_Allocation_RES_Daily_APN_MFile {
 //		String Folder = "/home/shatam-100/workspaces/Waterview_CII_Functionalities_vncvm/waterview_resources/data_files_backup/Data_Folder_2024-06-19/WVTRABUCOCANYON" + "/";//21
 //		String Folder = "/home/shatam-100/workspaces/Waterview_CII_Functionalities_vncvm/waterview_resources/data_files_backup/Data_Folder_2024-06-19/WVVACAVILLECIT374" + "/";//19
 //		String Folder = "/home/shatam-100/workspaces/Waterview_CII_Functionalities_vncvm/waterview_resources/data_files_backup/Data_Folder_2024-06-19/WVOXNARD/";//
-		String Folder = "/home/shatam-100/Down/WaterView_Data/FTP_DATA/Data_Folder_2024-07-01/WVCALOSANGELES"+"/";
+		String Folder = "/home/shatam-100/Down/WaterView_Data/FTP_DATA/Data_Folder_2024-07-17/WVCASITAS"+"/";
 		createConsumtionFile(Folder);
         System.out.println("Total Data Size : "+count+" | "+uniquedata.size());
         System.out.println(count-TotalDataNeed);
@@ -99,12 +99,12 @@ public class Main_Allocation_RES_Daily_APN_MFile {
 //      System.out.println("Waterdistrict_ID : "+ Waterdistrict_ID); 
 		String WD_Name = getTableName(Waterdistrict_ID);
 		TableName = WD_Name.toLowerCase().trim();
-//      TableName = "Eto_DB_Tiles";
+//          TableName = "san_jose";
 		System.out.println("TableName" + TableName);
 		String meter_locations_res = FolderName + "prd.meter_locations_res.csv";
 		String meter_locations_res_convertedData = FolderName + "prd.meter_locations_res.json";
 //        String outputjsonFile = FolderName + TableName+"_res_daily_Eto_30april.json";
-		String outputCSVFile = FolderName + TableName + "_res_daily_Eto_apn_15_July.csv";
+		String outputCSVFile = FolderName + TableName + "_res_daily_Eto_apn_6_Aug.csv";	
 
 		FileWriter writer = new FileWriter(outputCSVFile);
 		CSVWriter csvWriter = new CSVWriter(writer);
@@ -116,7 +116,7 @@ public class Main_Allocation_RES_Daily_APN_MFile {
 		LocalDate startD = LocalDate.of(2024, 6, 1);
 //		LocalDate startD = LocalDate.of(2023,1, 1);
 //        LocalDate endD = LocalDate.of(2018, 12, 31);
-		LocalDate endD = LocalDate.of(2024, 6, 30);
+		LocalDate endD = LocalDate.of(2024,6, 30);
         long daysBetween = ChronoUnit.DAYS.between(startD, endD);
         System.out.println("Number of days between " + endD + " and " + startD + " is: " + daysBetween);
 

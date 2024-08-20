@@ -80,7 +80,45 @@ public class Main_Allocation_RES_Daily_APN {
 //		String Folder = "/home/shatam-100/workspaces/Waterview_CII_Functionalities_vncvm/waterview_resources/data_files_backup/Data_Folder_2024-06-19/WVTRABUCOCANYON" + "/";//21
 //		String Folder = "/home/shatam-100/workspaces/Waterview_CII_Functionalities_vncvm/waterview_resources/data_files_backup/Data_Folder_2024-06-19/WVVACAVILLECIT374" + "/";//19
 //		String Folder = "/home/shatam-100/workspaces/Waterview_CII_Functionalities_vncvm/waterview_resources/data_files_backup/Data_Folder_2024-06-19/WVOXNARD/";//
-		String Folder = "/home/shatam-100/Down/WaterView_Data/FTP_DATA/Data_Folder_2024-06-25/WVLASVIRGENESM189";
+//		String Folder = "/home/shatam-100/Down/WaterView_Data/FTP_DATA/Data_Folder_2024-07-17/WVMONTEVISTACO226";
+//		String Folder = "/home/shatam-100/Down/WaterView_Data/FTP_DATA/Data_Folder_2024-07-17/WVWESTERN";
+//		String Folder = "/home/shatam-100/Down/WaterView_Data/FTP_DATA/Data_Folder_2024-07-17/WVCARLSBAD";
+
+//		String Folder = "/home/shatam-100/Down/WaterView_Data/FTP_DATA/Data_Folder_2024-07-17/WVLASVIRGENESM189";
+//		String Folder = "/home/shatam-100/Down/WaterView_Data/FTP_DATA/Data_Folder_2024-07-17/WVNIPOMO";
+//		String Folder = "/home/shatam-100/Down/WaterView_Data/FTP_DATA/Data_Folder_2024-07-17/WVROSEVILLE";
+//		String Folder = "/home/shatam-100/Down/WaterView_Data/FTP_DATA/Data_Folder_2024-07-17/WVVACAVILLECIT374";
+//		String Folder = "/home/shatam-100/Down/WaterView_Data/FTP_DATA/Data_Folder_2024-07-17/WVBANNING";
+//		String Folder = "/home/shatam-100/Down/WaterView_Data/FTP_DATA/Data_Folder_2024-07-17/WVBELLFLOWER";
+//		String Folder = "/home/shatam-100/Down/WaterView_Data/FTP_DATA/Data_Folder_2024-07-17/WVCAMROSAWATER063";
+//		String Folder = "/home/shatam-100/Down/WaterView_Data/FTP_DATA/Data_Folder_2024-07-17/WVEASTVALLEY";
+//		String Folder = "/home/shatam-100/Down/WaterView_Data/FTP_DATA/Data_Folder_2024-07-17/WVFAIRFIELDCIT120";
+//		String Folder = "/home/shatam-100/Down/WaterView_Data/FTP_DATA/Data_Folder_2024-07-17/WVGLENDALECITY133";
+//		String Folder = "/home/shatam-100/Down/WaterView_Data/FTP_DATA/Data_Folder_2024-07-17/WVINDIANWELLS";
+//		String Folder = "/home/shatam-100/Down/WaterView_Data/FTP_DATA/Data_Folder_2024-07-17/WVMONTECITO";
+//		String Folder = "/home/shatam-100/Down/WaterView_Data/FTP_DATA/Data_Folder_2024-07-17/WVMODESTO";
+//		String Folder = "/home/shatam-100/Down/WaterView_Data/FTP_DATA/Data_Folder_2024-07-17/WVMYOMADUNESMU235";
+//		String Folder = "/home/shatam-100/Down/WaterView_Data/FTP_DATA/Data_Folder_2024-07-17/WVORCHARDDALE";
+//		String Folder = "/home/shatam-100/Down/WaterView_Data/FTP_DATA/Data_Folder_2024-07-17/WVPOMONA";
+//		String Folder = "/home/shatam-100/Down/WaterView_Data/FTP_DATA/Data_Folder_2024-07-17/WVROWLANDWATER299";
+//		String Folder = "/home/shatam-100/Down/WaterView_Data/FTP_DATA/Data_Folder_2024-07-17/WVRUBIDOUX";
+//		String Folder = "/home/shatam-100/Down/WaterView_Data/FTP_DATA/Data_Folder_2024-07-17/WVSUISUN";
+//		String Folder = "/home/shatam-100/Down/WaterView_Data/FTP_DATA/Data_Folder_2024-07-17/WVTRABUCOCANYON";
+//		String Folder = "/home/shatam-100/Down/WaterView_Data/FTP_DATA/Data_Folder_2024-07-17/WVSANCLEMENTEC310";
+//		String Folder = "/home/shatam-100/Down/WaterView_Data/FTP_DATA/Data_Folder_2024-07-17/WVRANCHO";
+//		String Folder = "/home/shatam-100/Down/WaterView_Data/FTP_DATA/Data_Folder_2024-07-17/NORCOCITYOFW242";
+//		String Folder = "/home/shatam-100/Down/WaterView_Data/FTP_DATA/Data_Folder_2024-07-17/SANTABARBARA327";
+//		String Folder = "/home/shatam-100/Down/WaterView_Data/FTP_DATA/Data_Folder_2024-07-17/WVDIXON";
+//		String Folder = "/home/shatam-100/Down/WaterView_Data/FTP_DATA/Data_Folder_2024-07-17/WVBEVERLYHILLS025";?/Not
+//		String Folder = "/home/shatam-100/Down/WaterView_Data/FTP_DATA/Data_Folder_2024-07-17/WVSANTAMONICA";
+//		newman
+//		String Folder = "/home/shatam-100/Down/WaterView_Data/FTP_DATA/Data_Folder_2024-07-17/WVSANGABRIELCOUNTY";
+//		String Folder = "/home/shatam-100/Down/WaterView_Data/FTP_DATA/Data_Folder_2024-07-17/WVCAVENTURA";
+//		String Folder = "/home/shatam-100/Down/WaterView_Data/FTP_DATA/Data_Folder_2024-07-17/WVCASACRAMENTO";
+//		String Folder = "/home/shatam-100/Down/WaterView_Data/FTP_DATA/Data_Folder_2024-07-17/WVPORTERVILLE";
+
+		Folder = Folder+"/";
+
 		createConsumtionFile(Folder);
         System.out.println("Total Data Size : "+count+" | "+uniquedata.size());
 
@@ -102,7 +140,7 @@ public class Main_Allocation_RES_Daily_APN {
 		String consumctionFile = FolderName + "MonthlyConsumptionRes.csv";
 		String meter_locations_res_convertedData = FolderName + "prd.meter_locations_res.json";
 //        String outputjsonFile = FolderName + TableName+"_res_daily_Eto_30april.json";
-		String outputCSVFile = FolderName + TableName + "_res_daily_Eto_apn.csv";
+		String outputCSVFile = FolderName + TableName + "_res_daily_Eto_apn_7Aug.csv";
 
 		FileWriter writer = new FileWriter(outputCSVFile);
 		CSVWriter csvWriter = new CSVWriter(writer);
@@ -112,9 +150,9 @@ public class Main_Allocation_RES_Daily_APN {
 		readAllConsumption(consumctionFile);
 //        System.out.println(als.size());
 //		LocalDate startD = LocalDate.of(2021,1, 1);
-		LocalDate startD = LocalDate.of(2023,1, 1);
+		LocalDate startD = LocalDate.of(2024,7, 1);
 //        LocalDate endD = LocalDate.of(2023, 12, 31);
-		LocalDate endD = LocalDate.of(2024, 5, 31);
+		LocalDate endD = LocalDate.of(2024, 7, 31);
 //		LocalDate endD = LocalDate.of(2022,12, 31);
 		DateTimeFormatter formatter = DateTimeFormatter.ofPattern("yyyy-MM");
 
@@ -132,6 +170,7 @@ public class Main_Allocation_RES_Daily_APN {
 		System.out.println(FolderName);
 		System.out.println("Added all sql data in hashmap");
         getAllUniqueTileSqlite(tiles);
+        System.out.println(tiles.size());
 		run();
 
 		ObjectMapper objectMapper = new ObjectMapper();

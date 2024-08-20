@@ -14,7 +14,7 @@ public class CSVKeyChecker {
 //    	String csvFile = "/home/shatam-100/Down/WaterView_Data/FTP_DATA/Data_Folder_2024-05-02/WVCAMROSAWATER063/camrosa_res_daily_Eto_mid.csv";
 //    	String csvFile = "/home/shatam-100/Down/WaterView_Data/FTP_DATA/Data_Folder_2024-05-02/WVGLENDALECITY133/glendale_res_daily_Eto_mid.csv";
 //    	String csvFile = "/home/shatam-100/Down/WaterView_Data/FTP_DATA/Data_Folder_2024-05-02/WVMYOMADUNESMU235/myoma_dunes_res_daily_Eto_mid.csv";
-    	String csvFile = "/home/shatam-100/workspaces/Waterview_CII_Functionalities_vncvm/waterview_resources/data_files_backup/Data_Folder_2024-06-20/WVSANTAMONICA/santa_monica_res_daily_Eto_apn.csv"; 
+    	String csvFile = "/home/shatam-100/Down/WaterView_Data/FTP_DATA/res_daily_Eto_apn_13_Aug_csv/escondido_res_daily_Eto_apn_13_Aug.csv"; 
     	String line;
         String cvsSplitBy = ",";
         System.out.println(csvFile);
