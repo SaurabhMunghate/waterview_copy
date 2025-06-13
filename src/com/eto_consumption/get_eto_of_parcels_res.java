@@ -72,7 +72,25 @@ public class get_eto_of_parcels_res {
 
 	@SuppressWarnings("unchecked")
 	public static void main(String[] arg) throws Exception {
-		String Folder = "/home/shatam-100/Down/WaterView_Data/FTP_DATA/Data_Folder_2024-07-17/WVEASTVALLEY"+"/";
+//		String Folder = "/home/shatam-100/Down/WaterView_Data/FTP_DATA/Data_Folder_2024-10-07/JURUPACOMMUN177"+"/";
+//		String Folder = "/home/shatam-100/Down/WaterView_Data/FTP_DATA/Data_Folder_2024-10-07/WVBRENTWOOD"+"/";
+//		String Folder = "/home/shatam-100/Down/WaterView_Data/FTP_DATA/Data_Folder_2024-10-07/WVCAMARILLO"+"/";
+//		String Folder = "/home/shatam-100/Down/WaterView_Data/FTP_DATA/Data_Folder_2024-10-07/WVCAMROSAWATER063"+"/";
+//		String Folder = "/home/shatam-100/Down/WaterView_Data/FTP_DATA/Data_Folder_2024-10-07/WVCASITAS"+"/";
+//		String Folder = "/home/shatam-100/Down/WaterView_Data/FTP_DATA/Data_Folder_2024-10-07/WVEASTVALLEY"+"/";
+//		String Folder = "/home/shatam-100/Down/WaterView_Data/FTP_DATA/Data_Folder_2024-10-07/WVGLENDALECITY133"+"/";
+//		String Folder = "/home/shatam-100/Down/WaterView_Data/FTP_DATA/Data_Folder_2024-10-07/WVLAKEARROWHEAD"+"/";
+//		String Folder = "/home/shatam-100/Down/WaterView_Data/FTP_DATA/Data_Folder_2024-10-07/WVMONTEVISTACO226"+"/";
+//		String Folder = "/home/shatam-100/Down/WaterView_Data/FTP_DATA/Data_Folder_2024-10-07/WVONTARIO"+"/";
+//		String Folder = "/home/shatam-100/Down/WaterView_Data/FTP_DATA/Data_Folder_2024-10-07/WVORCHARDDALE"+"/";
+//		String Folder = "/home/shatam-100/Down/WaterView_Data/FTP_DATA/Data_Folder_2024-10-07/WVPOMONA"+"/";
+//		String Folder = "/home/shatam-100/Down/WaterView_Data/FTP_DATA/Data_Folder_2024-10-07/WVREDWOODCITY"+"/";
+//		String Folder = "/home/shatam-100/Down/WaterView_Data/FTP_DATA/Data_Folder_2024-10-07/WVRIALTO"+"/";
+//		String Folder = "/home/shatam-100/Down/WaterView_Data/FTP_DATA/Data_Folder_2024-10-07/WVRINCON"+"/";
+//		String Folder = "/home/shatam-100/Down/WaterView_Data/FTP_DATA/Data_Folder_2024-10-07/WVSANGABRIELCOUNTY"+"/";
+//		String Folder = "/home/shatam-100/Down/WaterView_Data/FTP_DATA/Data_Folder_2024-10-07/WVSIMIVALLEY"+"/";
+//		String Folder = "/home/shatam-100/Down/WaterView_Data/FTP_DATA/Data_Folder_2024-10-07/WVTRABUCOCANYON"+"/";
+//		String Folder = "/home/shatam-100/Down/WaterView_Data/FTP_DATA/Data_Folder_2024-10-07/WVVACAVILLECIT374"+"/";
 		createConsumtionFile(Folder);
         System.out.println("Total Data Size : "+count+" | "+uniquedata.size());
         System.out.println(count-TotalDataNeed);
@@ -82,19 +100,18 @@ public class get_eto_of_parcels_res {
 		// TODO Auto-generated method stub
 
 		long begin = System.currentTimeMillis();
-
-//      String FolderName = "/home/shatam-100/Down/WaterView_Data/FTP_DATA/Data_Folder_2024-04-15/WVRUBIDOUX"+"/";
 		String[] st = FolderName.split("/");
 		String Waterdistrict_ID = st[st.length - 1];
 //      System.out.println("Waterdistrict_ID : "+ Waterdistrict_ID); 
 		String WD_Name = getTableName(Waterdistrict_ID);
 		TableName = WD_Name.toLowerCase().trim();
 //          TableName = "san_jose";
-		System.out.println("TableName" + TableName);
+		System.out.println("TableName " + TableName);
 		String parcels_res = FolderName + "prd.parcels_res.csv";
 		String parcels_res_json = FolderName + "prd.parcels_res.json";
 //        String outputjsonFile = FolderName + TableName+"_res_daily_Eto_30april.json";
-		String outputCSVFile = FolderName + TableName + "_res_daily_Eto_apn_16_Aug.csv";	
+//		String outputCSVFile = FolderName + TableName + "_res_daily_Eto_apn_6sep.csv";	
+		String outputCSVFile = FolderName + TableName + "_res_daily_Eto_apn_8oct.csv";	
 
 		FileWriter writer = new FileWriter(outputCSVFile);
 		CSVWriter csvWriter = new CSVWriter(writer);
@@ -103,10 +120,16 @@ public class get_eto_of_parcels_res {
 //        ArrayList<String[]> als = null;
 		readAllConsumption(parcels_res);
 //        System.out.println(als.size());
-		LocalDate startD = LocalDate.of(2021, 1, 1);
-//		LocalDate startD = LocalDate.of(2022,1, 1);
-//        LocalDate endD = LocalDate.of(2022, 12, 31);
-		LocalDate endD = LocalDate.of(2024,7, 31);
+//		LocalDate startD = LocalDate.of(2024,8,1);
+//        LocalDate endD = LocalDate.of(2024,9,30);
+
+        
+		LocalDate startD = LocalDate.of(2024,7,1);
+      LocalDate endD = LocalDate.of(2024,7,31);
+
+		
+//		LocalDate startD = LocalDate.of(2021,1,1);
+//		LocalDate endD = LocalDate.of(2021,12,31);
         long daysBetween = ChronoUnit.DAYS.between(startD, endD);
         System.out.println("Number of days between " + endD + " and " + startD + " is: " + daysBetween);
 
@@ -553,7 +576,7 @@ public class get_eto_of_parcels_res {
 		String whereClause = "Tiles = ?";
 
 		String[] months = { "01", "02", "03", "04", "05", "06", "07", "08", "09", "10", "11", "12" };
-//            String[] months1 = { "01", "02", "03" };
+//            String[] months = { "08" };
 //          String[] months = { "01" };
 //            System.out.println("geometrygeometry1");
 

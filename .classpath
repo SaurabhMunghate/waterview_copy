@@ -1,10 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <classpath>
-	<classpathentry kind="con" path="org.eclipse.jdt.launching.JRE_CONTAINER/org.eclipse.jdt.internal.debug.ui.launcher.StandardVMType/JavaSE-1.8">
-		<attributes>
-			<attribute name="module" value="true"/>
-		</attributes>
-	</classpathentry>
+	<classpathentry kind="con" path="org.eclipse.jdt.launching.JRE_CONTAINER/org.eclipse.jdt.internal.debug.ui.launcher.StandardVMType/JavaSE-1.8"/>
 	<classpathentry kind="src" path="src"/>
 	<classpathentry kind="lib" path="/home/shatam-100/eclipse-workspace/waterview_copy/lib/jars/unit-api-2.2.jar"/>
 	<classpathentry kind="lib" path="/home/shatam-100/eclipse-workspace/waterview_copy/lib/jars/gson-2.8.2.jar"/>
@@ -33,5 +29,14 @@
 	<classpathentry kind="lib" path="/home/shatam-100/eclipse-workspace/waterview_copy/lib/jars/opencsv/opencsv-4.1.jar"/>
 	<classpathentry kind="lib" path="/home/shatam-100/eclipse-workspace/waterview_copy/lib/jars/sqlite-jdbc-3.20.1.jar"/>
 	<classpathentry kind="lib" path="/home/shatam-100/eclipse-workspace/waterview_copy/lib/jars/org.geotools/wod-iquod-qc-spark-1.0.5.jar"/>
+	<classpathentry kind="lib" path="/home/shatam-100/.m2/repository/org/geotools/gt-shapefile/24.0/gt-shapefile-24.0.jar" sourcepath="/home/shatam-100/.m2/repository/org/geotools/gt-shapefile/24.0/gt-shapefile-24.0-sources.jar">
+		<attributes>
+			<attribute name="maven.pomderived" value="true"/>
+			<attribute name="maven.groupId" value="org.geotools"/>
+			<attribute name="maven.artifactId" value="gt-shapefile"/>
+			<attribute name="maven.version" value="24.0"/>
+			<attribute name="maven.scope" value="compile"/>
+		</attributes>
+	</classpathentry>
 	<classpathentry kind="output" path="bin"/>
 </classpath>

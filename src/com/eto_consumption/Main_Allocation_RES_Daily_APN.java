@@ -115,7 +115,7 @@ public class Main_Allocation_RES_Daily_APN {
 //		String Folder = "/home/shatam-100/Down/WaterView_Data/FTP_DATA/Data_Folder_2024-07-17/WVSANGABRIELCOUNTY";
 //		String Folder = "/home/shatam-100/Down/WaterView_Data/FTP_DATA/Data_Folder_2024-07-17/WVCAVENTURA";
 //		String Folder = "/home/shatam-100/Down/WaterView_Data/FTP_DATA/Data_Folder_2024-07-17/WVCASACRAMENTO";
-//		String Folder = "/home/shatam-100/Down/WaterView_Data/FTP_DATA/Data_Folder_2024-07-17/WVPORTERVILLE";
+		String Folder = "/home/shatam-100/Down/WaterView_Data/FTP_DATA/Data_Folder_2024-09-06/WVNIPOMO";
 
 		Folder = Folder+"/";
 
@@ -150,9 +150,9 @@ public class Main_Allocation_RES_Daily_APN {
 		readAllConsumption(consumctionFile);
 //        System.out.println(als.size());
 //		LocalDate startD = LocalDate.of(2021,1, 1);
-		LocalDate startD = LocalDate.of(2024,7, 1);
+		LocalDate startD = LocalDate.of(2024,8, 1);
 //        LocalDate endD = LocalDate.of(2023, 12, 31);
-		LocalDate endD = LocalDate.of(2024, 7, 31);
+		LocalDate endD = LocalDate.of(2024, 8, 31);
 //		LocalDate endD = LocalDate.of(2022,12, 31);
 		DateTimeFormatter formatter = DateTimeFormatter.ofPattern("yyyy-MM");
 

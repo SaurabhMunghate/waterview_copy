@@ -36,32 +36,41 @@ import com.google.gson.JsonElement;
 import com.google.gson.JsonObject;
 import com.google.gson.JsonParser;
 import com.opencsv.CSVWriter;
+import com.shatam.utils.CSVToJSon;
 import com.vividsolutions.jts.geom.Geometry;
 import com.vividsolutions.jts.io.ParseException;
 import com.vividsolutions.jts.io.WKTReader;
 
 //import tech.units.indriya.AbstractSystemOfUnits;
 
-public class Main_Allocation_CII {
+public class Main_Allocation_CII_Working {
 	static ArrayList<Geometry> tiles = new ArrayList<Geometry>();
 	static Map<String, Double> allETO = new HashMap<>();
 	private static final JSONParser parser = new JSONParser();
 //	private static final String premiseFile = "/home/shatam-100/Down/WaterView_Data/meter_locations_res_montevista.json";
 //	static List<String[]> arrayListOfArrays = new ArrayList<>();
 	static Map<String, String[]> hashMapOfArrays = new HashMap<>();
+	
 	static Map<String, String> etonotfoun = new HashMap<>();
 	static ArrayList<String[]> consmData = new ArrayList<>();
 	static Map<String, String> PB = new HashMap<>();
 	static Map<String, String[]> ML = new HashMap<>();
 	
 	private static String tableName = "";
-	private static String FolderName = "/home/shatam-100/Down/WaterView_Data/FTP_DATA/Data_Folder_2024-05-09/WVMONTEVISTACO226"+"/";
+//	private static String FolderName = "/home/shatam-100/Down/WaterView_Data/FTP_DATA/Data_Folder_2024-10-27/JURUPACOMMUN177"+"/";
+//	private static String FolderName = "/home/shatam-100/Down/WaterView_Data/FTP_DATA/AprilData/WVMONTEVISTACO226"+"/";
+	private static String FolderName = "/home/shatam-100/Down/WaterView_Data/FTP_DATA/June/WVSANCLEMENTEC310"+"/";
+
 	private static String premise_bounds = FolderName+"prd.premise_bounds.json";
 	private static String meter_locations = FolderName+"prd.meter_locations.json";
 	private static String consumctionFile = FolderName+"MonthlyConsumption.csv";
-
+	
+	
+	
 	@SuppressWarnings("unchecked")
 	public static void main(String[] arg) throws Exception {
+//		U.csvToJSON(premise_bounds);
+//		U.csvToJSON(meter_locations);
 		String[] st = FolderName.split("/");
 		String Waterdistrict_ID = st[st.length-1];
 //		System.out.println("Waterdistrict_ID : "+ Waterdistrict_ID); 
@@ -70,9 +79,11 @@ public class Main_Allocation_CII {
 
 		
 		long begin = System.currentTimeMillis();
-		String outputjsonFile = FolderName+tableName+"_cii_consumption_eto_test.json";
-		String outputCSVFile = FolderName+tableName+"_cii_consumption_eto_test.csv";
-		
+//		String outputjsonFile = FolderName+tableName+"_cii_consumption_eto.json";
+//		String outputCSVFile = FolderName+tableName+"_cii_consumption_eto.csv";
+		String outputjsonFile = FolderName+"cii_consumption_eto.json";
+		String outputCSVFile = FolderName+"cii_consumption_eto.csv";
+
 		FileWriter writer = new FileWriter(outputCSVFile);
 		CSVWriter csvWriter = new CSVWriter(writer);
 
@@ -129,14 +140,15 @@ public class Main_Allocation_CII {
 			for (JsonNode objNode : jsonNode) {
 				//meter locations res MeterID the_geom
 //				String meterID = objNode.get("meterID").asText();
-				String premID = objNode.get("premID").asText();
-				String theGeom = objNode.get("the_geom").asText();
+				String premID = objNode.has("premID") ? objNode.get("premID").asText() : objNode.get("PremID").asText();
+				
+				String theGeom = objNode.has("the_geom") ? objNode.get("the_geom").asText() : objNode.get("geometry").asText();
 //				String theGeom = objNode.get("geometry").asText();
 //				System.out.println(meterID+ " || "+theGeom);
 				hashMapPidPoint.put(premID, theGeom);
 			}
 		}
-		System.out.println("Hash Map Creation Completed");
+//		System.out.println("Hash Map Creation Completed");
 //		String[] header = { "Date", "premid", "PreTile", "Eto", "Tile" };
 //		String[] header = { "Date", "meterID", "premID", "PreTile", "Eto","Precip", "Tile", "Allocation", "Consumption" };
 		String[] header = { "Date", "meterID", "premID", "Allocation", "Consumption" };
@@ -161,8 +173,10 @@ public class Main_Allocation_CII {
 			
 //			if(!ID.contains("Mnte122")&&!ID.contains("Mnte120"))continue;
 //			if(!ID.contains("Mnte122"))continue;
-			if(!ID.contains("Mnte120"))continue;
-			System.out.println("Date "+date+ " meterID "+ meterID+" Consumption "+Consumption);
+			if(ID==null)continue;
+//			if(!ID.contains("5007097"))continue;
+			
+//			System.out.println("Date "+date+ " meterID "+ meterID+" Consumption "+Consumption);
 //			String Pid = data[1];
 //			String date = data[2];
 			String formattedDate = "";
@@ -180,7 +194,8 @@ public class Main_Allocation_CII {
 //			System.out.println(i);
 //			System.out.println(Pid);
 //			System.out.println(date);
-
+//			System.out.println(ID);
+			
 			String theGeom = "";
 			String the_geom = "";
 			try {
@@ -191,7 +206,7 @@ public class Main_Allocation_CII {
 				theGeom = theGeomGeometry+"";
 //				System.out.println("theGeom : "+theGeom);
 			} catch (Exception e) {
-				System.out.println(meterID+"   ||1   "+date);
+				System.out.println(meterID+"   ||   "+date);
 //				System.out.print(date);
 				continue;
 //				return;
@@ -267,17 +282,27 @@ public class Main_Allocation_CII {
 //			ML.put(premI_D, new String[]{I,I_SLA});
 			String I = ISLA[0];
 			String I_SLA = ISLA[1];
-			System.out.println("premID "+premID+" I :"+I+" I_SLA :"+I_SLA);
-	        System.out.println("Eto "+ avgETo+" PEFF "+ avgPrecp);
-			double allocation=Math.abs((0.62)*((Double.parseDouble(I)*0.8*(Double.parseDouble(avgETo)-Double.parseDouble(avgPrecp)))+(1.0*Double.parseDouble(I_SLA)*Double.parseDouble(avgETo))+(1*0.45*Double.parseDouble(avgETo)))+0);
-
-			System.out.println("allocation1 :: "+allocation);
+//			System.out.println("premID "+premID+" I :"+I+" I_SLA :"+I_SLA);
+//	        System.out.println("Eto "+ avgETo+" PEFF "+ avgPrecp);
+//	        avgPrecp = "0";
+			double allocation = 0.0;
+			try {
+				allocation=Math.abs((0.62)*((Double.parseDouble(I)*0.8*(Double.parseDouble(avgETo)-Double.parseDouble(avgPrecp)))+(1.0*Double.parseDouble(I_SLA)*Double.parseDouble(avgETo))+(1*0.45*Double.parseDouble(avgETo)))+0);
+			} catch (Exception e) {
+				avgPrecp = "0";
+				allocation=Math.abs((0.62)*((Double.parseDouble(I)*0.8*(Double.parseDouble(avgETo)-Double.parseDouble(avgPrecp)))+(1.0*Double.parseDouble(I_SLA)*Double.parseDouble(avgETo))+(1*0.45*Double.parseDouble(avgETo)))+0);
+//				e.getStackTrace();
+//				// TODO: handle exception
+			}
+//			System.out.println("allocation1 :: "+allocation);
 			//One CCF is equivalent to 748 gallons
 	        allocation = allocation/748.052;
 //			double allocation = (0.62) * ((Double.parseDouble(I) * 0.8 * (avgEto - avgprecip))
 //					+ (1.0 * Double.parseDouble(I_SLA) * avgEto));
-
-			System.out.println("allocation2 :: "+allocation);
+//	        if(allocation==0.0)System.out.println("avgETo :: "+avgETo+"the_geom :: "+the_geom);
+	        if(allocation==0.0)System.out.println("avgETo :: "+avgETo);
+//			System.out.println("allocation2 :: "+allocation);
+//			System.out.println("the_geom :: "+the_geom);
 			ObjectNode jsonObject = objectMapper.createObjectNode();
 			jsonObject.put("Date", date);
 			jsonObject.put("MeterID", meterID);
@@ -362,9 +387,27 @@ public class Main_Allocation_CII {
 		if (premise.isArray()) {
 			for (JsonNode objNode : premise) {
 				//meter locations res MeterID the_geom
-				String premI_D = objNode.get("premID").asText();
-				String I_SLA = objNode.get("I_SLA").asText();
-				String I = objNode.get("I").asText();
+				String premI_D = "";
+				try {
+					premI_D = objNode.get("premID").asText();
+				} catch (Exception e) {
+					premI_D = objNode.get("PremID").asText();
+					// TODO: handle exception
+				}
+//				String premI_D = objNode.get("premID").asText();
+				String I_SLA = "0";
+				try {
+					I_SLA = objNode.get("I_SLA").asText();
+				} catch (Exception e) {
+					// TODO: handle exception
+				}
+//				String I = objNode.get("I").asText();
+				String I = "0";
+				try {
+					I = objNode.get("I").asText();
+				} catch (Exception e) {
+					// TODO: handle exception
+				}
 //				System.out.println(premI_D+" | "+ I_SLA+" | "+ I);
 				ML.put(premI_D, new String[]{I,I_SLA});
 			}
@@ -375,8 +418,11 @@ public class Main_Allocation_CII {
 		if (meter.isArray()) {
 			for (JsonNode objNode : meter) {
 				//meter locations res MeterID the_geom
-				String premID = objNode.get("premID").asText();
-				String meterID = objNode.get("meterID").asText();
+//				String premID = objNode.get("PremID").asText();
+				String premID = objNode.has("premID") ? objNode.get("premID").asText() : objNode.get("PremID").asText();
+				String meterID = objNode.has("MeterID") ? objNode.get("MeterID").asText() : objNode.get("meterID").asText();
+
+//				String meterID = objNode.get("MeterID").asText();
 //				System.out.println(premID+" | "+ meterID);
 				PB.put(meterID, premID);
 				
@@ -573,6 +619,91 @@ public class Main_Allocation_CII {
 			String whereClause = "Tiles = ?";
 
 			String[] months = { "01", "02", "03", "04", "05", "06", "07", "08", "09", "10", "11", "12" };
+			for (String month : months) {
+				String date = "2025-" + month;
+				String da = date;
+
+				String sql = "SELECT Date, Precip, ET_Value, Tiles FROM "+tableName+" WHERE (" + whereClause
+						+ ") AND Date LIKE ?";
+				preparedStatement = connection.prepareStatement(sql);
+				preparedStatement.setString(1, geometry.toString());
+				preparedStatement.setString(2, "%" + da + "%");
+				resultSet = preparedStatement.executeQuery();
+				Double ET_Value = 0.0000;
+				Double avgeto = 0.0000;
+				Double avgprep = 0.0000;
+				int i = 0;
+				while (resultSet.next()) {
+					String Date = resultSet.getString("Date");
+					Double Precip = resultSet.getDouble("Precip");
+					ET_Value = resultSet.getDouble("ET_Value");
+					String Tiles = resultSet.getString("Tiles");
+
+//                    String[] array = { Date, Precip.toString(), ET_Value.toString(), Tiles };
+//                    arrayListOfArrays.add(array);
+					avgeto += ET_Value;
+					avgprep+= Precip;
+//					System.out.println(avgeto +"   |   "+ ET_Value);
+//					System.out.println(i +"   |   "+ ET_Value);
+
+					i++;
+				}
+//				System.out.println("System.out.println :: "+i);
+//				System.out.println(" avgeto ::: "+avgeto/i + " | "+geometry.toString()+" | "+da);
+//				if((avgprep)+""== "NaN") {
+//					System.out.println("NNNNNAAAAAANNNNN");
+//				}
+				String[] arr = { da, avgeto + "" , avgprep+""};
+				String key = geometry + date;
+//				System.out.println( da+ " | "+ avgeto + "  | " + avgprep+"");
+//				System.out.println(key);
+//				System.out.println(arr[0]+"  |  "+arr[1]);
+
+				hashMapOfArrays.put(key.trim(), arr);
+			}
+
+			for (String month : months) {
+				String date = "2024-" + month;
+				String da = date;
+
+				String sql = "SELECT Date, Precip, ET_Value, Tiles FROM "+tableName+" WHERE (" + whereClause
+						+ ") AND Date LIKE ?";
+				preparedStatement = connection.prepareStatement(sql);
+				preparedStatement.setString(1, geometry.toString());
+				preparedStatement.setString(2, "%" + da + "%");
+				resultSet = preparedStatement.executeQuery();
+				Double ET_Value = 0.0000;
+				Double avgeto = 0.0000;
+				Double avgprep = 0.0000;
+				int i = 0;
+				while (resultSet.next()) {
+					String Date = resultSet.getString("Date");
+					Double Precip = resultSet.getDouble("Precip");
+					ET_Value = resultSet.getDouble("ET_Value");
+					String Tiles = resultSet.getString("Tiles");
+
+//                    String[] array = { Date, Precip.toString(), ET_Value.toString(), Tiles };
+//                    arrayListOfArrays.add(array);
+					avgeto += ET_Value;
+					avgprep+= Precip;
+//					System.out.println(avgeto +"   |   "+ ET_Value);
+//					System.out.println(i +"   |   "+ ET_Value);
+
+					i++;
+				}
+//				System.out.println("System.out.println :: "+i);
+//				System.out.println(" avgeto ::: "+avgeto/i + " | "+geometry.toString()+" | "+da);
+//				if((avgprep)+""== "NaN") {
+//					System.out.println("NNNNNAAAAAANNNNN");
+//				}
+				String[] arr = { da, avgeto + "" , avgprep+""};
+				String key = geometry + date;
+//				System.out.println( da+ " | "+ avgeto + "  | " + avgprep+"");
+//				System.out.println(key);
+//				System.out.println(arr[0]+"  |  "+arr[1]);
+
+				hashMapOfArrays.put(key.trim(), arr);
+			}
 			for (String month : months) {
 				String date = "2023-" + month;
 				String da = date;

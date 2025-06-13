@@ -15,13 +15,36 @@ import com.fasterxml.jackson.dataformat.csv.CsvSchema;
 public class CSVToJSon {
 
 	public static void main(String[] arg) throws Exception {
-		String csvfile = "/home/shatam-100/Down/WaterView_Data/FTP_DATA/Data_Folder_2024-08-05/WVCASITAS/prd.meter_locations_res.csv";
-		csvToJSON(csvfile,csvfile);
-	}
+//		String csvfile = "/home/shatam-100/Down/WaterView_Data/FTP_DATA/AprilData/users_district_2may.csv";
+//		csvToJSON(csvfile,csvfile);
+//		getFolderJson("/home/shatam-100/Down/WaterView_Data/FTP_DATA/Data_Folder_2024-10-27/JURUPACOMMUN177");
+		getFolderJson("/home/shatam-100/Down/WaterView_Data/FTP_DATA/AprilData/WVMONTEVISTACO226");
 
+
+	}
+    private static void getFolderJson(String inputDirectory) {
+		// TODO Auto-generated method stub
+    	System.out.println(inputDirectory);
+//      String outputDirectory = "/home/shatam-100/Down/WaterView_Data/FTP_DATA/18_March_WD/Data_Folder_2024-03-17/WVWESTERN";
+//      File outputDir = new File(outputDirectory);
+//      outputDir.mkdirs();
+      File[] jsonFiles = new File(inputDirectory).listFiles((dir, name) -> name.toLowerCase().endsWith(".csv"));
+      if (jsonFiles != null) {
+          for (File jsonFile : jsonFiles) {
+             try {
+          	   System.out.println(jsonFile);
+          	 csvToJSON(jsonFile+"", inputDirectory+"");
+			} catch (Exception e) {
+			}
+          }
+      
+      }
+
+		
+	}
 	public static void csvToJSON(String inputFileName, String outputFileName) {
 		File input = new File(inputFileName);
-		outputFileName = outputFileName.replace(".csv", ".json");
+		outputFileName = inputFileName.replace(".csv", ".json");
 		try {
 			CsvSchema csv = CsvSchema.emptySchema().withHeader();
 			CsvMapper csvMapper = new CsvMapper();

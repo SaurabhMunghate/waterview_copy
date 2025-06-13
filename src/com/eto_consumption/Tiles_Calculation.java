@@ -28,19 +28,19 @@ import com.vividsolutions.jts.geom.Polygon;
 import com.vividsolutions.jts.io.ParseException;
 import com.vividsolutions.jts.io.WKTReader;
 
-public class Eto_Calculation {
+public class Tiles_Calculation {
     static ArrayList<String> dataList = new ArrayList<>();
     static ArrayList<Geometry> tiles = new ArrayList<Geometry>();
     
-	static String txtFile = "/home/shatam-100/Down/WaterView_Data/Tiles/Califonia_15_Zoom.txt";
-//	static String txtFile = "/home/shatam-100/Down/WaterView_Data/Tiles/Califonia_14_Zoom.txt";
+//	static String txtFile = "/home/shatam-100/Down/WaterView_Data/Tiles/Califonia_15_Zoom.txt";
+	static String txtFile = "/home/shatam-100/Down/WaterView_Data/Tiles/Califonia_14_Zoom.txt";
 //	static String txtFile = "/home/shatam-100/Down/WaterView_Data/Tiles/Califonia_13_zoom.txt";
 //	static String txtFile = "/home/shatam-100/Down/WaterView_Data/Tiles/Califonia_12_zoom.txt";
 //    static String txtFile = "/home/shatam-100/Down/WaterView_Data/Tiles/Califonia_11_zoom.txt";
 //    static String txtFile = "/home/shatam-100/Down/WaterView_Data/Tiles/Califonia_10_zoom.txt";
 //    static String txtFile = "/home/shatam-100/Down/WaterView_Data/Tiles/Califonia_9_zoom.txt";
 //    static String txtFile = "/home/shatam-100/Down/WaterView_Data/Tiles/Califonia_8_zoom.txt";
-    static String zoom = "15";
+    static String zoom = "14_new_18feb_";
 
     private static String readGeoJSONFile(String filePath) throws IOException {
         Path path = Paths.get(filePath);
@@ -117,8 +117,11 @@ public class Eto_Calculation {
 //		CreatTilesofBound("/home/shatam-100/Down/WaterView_Data/Tiles/District-Boundaries-202404/DistrictBoundaries_geojson/vacaville_.geojson");
 //		CreatTilesofBound("/home/shatam-100/Down/WaterView_Data/Tiles/District-Boundaries-202404/DistrictBoundaries_geojson/vallejo_.geojson");
 //		CreatTilesofBound("/home/shatam-100/Down/WaterView_Data/Tiles/District-Boundaries-202404/DistrictBoundaries_geojson/walnut_valley_.geojson");
-		CreatTilesofBound("/home/shatam-100/Down/WaterView_Data/Tiles/District-Boundaries-202404/DistrictBoundaries_geojson/western_.geojson");
-
+//		CreatTilesofBound("/home/shatam-100/Down/WaterView_Data/Tiles/District-Boundaries-202404/DistrictBoundaries_geojson/las_virgenes_.geojson");
+//		CreatTilesofBound("/home/shatam-100/Down/WaterView_Data/Tiles/District-Boundaries-202404/DistrictBoundaries_geojson/loma_linda.geojson");
+//		CreatTilesofBound("/home/shatam-100/Down/WaterView_Data/Tiles/District-Boundaries-202404/DistrictBoundaries_geojson/hemet.geojson");
+//		CreatTilesofBound("/home/shatam-100/Down/WaterView_Data/Tiles/District-Boundaries-202404/DistrictBoundaries_geojson/dixon_.geojson");
+		CreatTilesofBound("/home/shatam-100/Down/WaterView_Data/Tiles/Califonia.geojson");
 	}
 
 
@@ -278,7 +281,7 @@ public class Eto_Calculation {
             
             // Convert set back to list if needed
             List<String> uniqueList = new ArrayList<>(uniqueData);
-			filePath = filePath.replace("DistrictBoundaries_geojson", "DistrictBoundaries_TILES")
+			filePath = filePath.replace("DistrictBoundaries_geojson", "DistrictBoundaries_geojson_New_13Feb")
             		.replace(".geojson", zoom+"_Zoom_"+uniqueList.size()+".csv");
             
             FileWriter writerFile = new FileWriter(filePath);

@@ -21,10 +21,11 @@ public class DistanceBetweenPoints {
 //    	Latitude: 34.054936781229486
 //    	Longitude: -117.70750983403565
     	//- , 
-        double latitude1 = 34.08906131584993;
-        double longitude1 = -117.685546875;
-        double latitude2= 34.08906131584993;
-        double longitude2 = -117.7734375;
+    	//-121.87545776367188 40.00026797264675 -121.24649047851561 40.00237193587648
+        double latitude1 = 40.00237193587648 ;
+        double longitude1 = -121.24649047851561;
+        double latitude2= 40.00026797264675;
+        double longitude2 = -121.87545776367188;
 		double distance = calculateDistance(latitude1, longitude1, latitude2, longitude2);
 
         System.out.println("The distance between the two points is " + distance + " kilometers.");

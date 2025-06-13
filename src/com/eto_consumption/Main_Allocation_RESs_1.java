@@ -112,7 +112,7 @@ public class Main_Allocation_RESs_1 {
 //		createConsumtionFile("/home/shatam-100/Down/WaterView_Data/FTP_DATA/Data_Folder_2024-07-17/WVSANGABRIELCOUNTY/");
 //		createConsumtionFile("/home/shatam-100/Down/WaterView_Data/FTP_DATA/Data_Folder_2024-07-17/WVMONTECITO/");//MonthlyConsumptionRes.csv (No such file or directory)
 //		createConsumtionFile("/home/shatam-100/Down/WaterView_Data/FTP_DATA/Data_Folder_2024-07-17/SANTABARBARA327/");//MonthlyConsumptionRes.csv (No such file or directory)
-		createConsumtionFile("/home/shatam-100/Down/WaterView_Data/FTP_DATA/Data_Folder_2024-08-07/WVWALNUTVALLEY388");
+		createConsumtionFile("/home/shatam-100/Down/WaterView_Data/FTP_DATA/Data_Folder_2024-08-30/WVLASVIRGENESM189");
 	}
 
 	private static void createConsumtionFile(String FolderName) throws IOException, ParseException, SQLException {

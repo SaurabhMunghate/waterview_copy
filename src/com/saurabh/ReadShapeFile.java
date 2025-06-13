@@ -87,7 +87,7 @@ public class ReadShapeFile {
 		
 //		readSchema("/home/shatam-100/Down/WaterView_Data/San_Jose_/AOI.shp");
 //		readSchema("/home/shatam-100/Down/WaterView_Data/Tiles/District-Boundaries-202404/DistrictBoundaries/las_virgenes/AOI.shp");
-		readSchema("/home/shatam-100/Down/WaterView_Data/Tiles/District-Boundaries-202404/DistrictBoundaries_SHP/dixon/AOI.shp");
+		readSchema("/home/shatam-100/Down/WaterView_Data/Tiles/Sanbernardino_aoi/AOI.shp");
 		
 /*		File files[] = new File("/home/glady/workspaces/Parcel_Cache/Hazard_Zone/other_hazard/critical_habitant/crithab_all_shapefiles/All_USA/PCH_Etheostoma_trisella_20181228/").listFiles();
 		
@@ -179,7 +179,7 @@ public class ReadShapeFile {
 		
 		U.log("filePath =="+filePath);
 		FileDataStore store = FileDataStoreFinder.getDataStore(new File(filePath));
-//		ShapefileDataStore store = new ShapefileDataStore(new File(filePath).toURL());
+		ShapefileDataStore store = new ShapefileDataStore(new File(filePath).toURL());
 		
 		SimpleFeatureSource featureSource = store.getFeatureSource();
 		SimpleFeatureType schema = store.getSchema();

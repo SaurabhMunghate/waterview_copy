@@ -59,7 +59,7 @@ public class Main_Allocation_RES_Daily {
 
 	@SuppressWarnings("unchecked")
 	public static void main(String[] arg) throws Exception {
-		String Folder = "/home/shatam-100/Down/WaterView_Data/FTP_DATA/Data_Folder_2024-05-02/WVRINCON"+"/";
+		String Folder = "/home/shatam-100/Down/WaterView_Data/FTP_DATA/Data_Folder_2024-08-30/WVNIPOMO"+"/";
 		createConsumtionFile(Folder);
 	}
 

@@ -98,7 +98,7 @@ public class ShapefileToWKTConverter {
 
 		}
 //        String file_Path="/home/shatam-100/Down/WaterView_Data/Tiles/District-Boundaries-202404/";
-//		FileDataWrite(wkt_final,shapefilePath);
+		FileDataWrite(wkt_final,shapefilePath);
 		// Close the feature iterator and data store
 		features.close();
 		dataStore.dispose();

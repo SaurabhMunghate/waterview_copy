@@ -82,7 +82,7 @@ public class Main_Allocation_RES_Daily_APN_MFile {
 //		String Folder = "/home/shatam-100/workspaces/Waterview_CII_Functionalities_vncvm/waterview_resources/data_files_backup/Data_Folder_2024-06-19/WVTRABUCOCANYON" + "/";//21
 //		String Folder = "/home/shatam-100/workspaces/Waterview_CII_Functionalities_vncvm/waterview_resources/data_files_backup/Data_Folder_2024-06-19/WVVACAVILLECIT374" + "/";//19
 //		String Folder = "/home/shatam-100/workspaces/Waterview_CII_Functionalities_vncvm/waterview_resources/data_files_backup/Data_Folder_2024-06-19/WVOXNARD/";//
-		String Folder = "/home/shatam-100/Down/WaterView_Data/FTP_DATA/Data_Folder_2024-07-17/WVCASITAS"+"/";
+		String Folder = "/home/shatam-100/Down/WaterView_Data/FTP_DATA/Data_Folder_2024-09-06/WVNIPOMO"+"/";
 		createConsumtionFile(Folder);
         System.out.println("Total Data Size : "+count+" | "+uniquedata.size());
         System.out.println(count-TotalDataNeed);
@@ -113,10 +113,10 @@ public class Main_Allocation_RES_Daily_APN_MFile {
 //        ArrayList<String[]> als = null;
 		readAllConsumption(meter_locations_res);
 //        System.out.println(als.size());
-		LocalDate startD = LocalDate.of(2024, 6, 1);
+		LocalDate startD = LocalDate.of(2024, 8, 1);
 //		LocalDate startD = LocalDate.of(2023,1, 1);
 //        LocalDate endD = LocalDate.of(2018, 12, 31);
-		LocalDate endD = LocalDate.of(2024,6, 30);
+		LocalDate endD = LocalDate.of(2024,8, 31);
         long daysBetween = ChronoUnit.DAYS.between(startD, endD);
         System.out.println("Number of days between " + endD + " and " + startD + " is: " + daysBetween);
 

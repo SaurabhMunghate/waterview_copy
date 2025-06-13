@@ -9,7 +9,9 @@ import java.io.IOException;
 public class CSVFolderMerger {
 
     public static void main(String[] args) {
+//        String inputFolderPath = "/home/shatam-100/Down/WaterView_Data/CSVFolderMerger"; // Replace with your input folder path
         String inputFolderPath = "/home/shatam-100/Down/WaterView_Data/CSVFolderMerger"; // Replace with your input folder path
+
         String outputFilePath = "/home/shatam-100/Down/WaterView_Data/CSVFolderMerger/CSV_Folder_Merger.csv"; // Replace with your desired output file path
 
         try {

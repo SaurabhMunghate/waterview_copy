@@ -513,7 +513,7 @@ public class U {
 		 File cacheFile = new File(file);
 		 long fileSizeInBytes = cacheFile.length();
 		 if(fileSizeInBytes==247) {cacheFile.delete();}
-//		 U.log(cacheFile);
+		 U.log(cacheFile);
 		if (cacheFile.exists())return;
 	        URL url = new URL(urlStr); 
 	        U.log(url);

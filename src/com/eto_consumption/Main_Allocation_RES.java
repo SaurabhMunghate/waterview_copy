@@ -59,6 +59,7 @@ public class Main_Allocation_RES {
 
 	@SuppressWarnings("unchecked")
 	public static void main(String[] arg) throws Exception {
+		//Final
 //		createConsumtionFile("/home/shatam-100/Down/WaterView_Data/FTP_DATA/Data_Folder_2024-07-17/WVMONTEVISTACO226/");
 //		createConsumtionFile("/home/shatam-100/Down/WaterView_Data/FTP_DATA/Data_Folder_2024-07-17/WVCAMROSAWATER063/");
 //		createConsumtionFile("/home/shatam-100/Down/WaterView_Data/FTP_DATA/Data_Folder_2024-07-17/WVCAMARILLO/");
@@ -112,8 +113,8 @@ public class Main_Allocation_RES {
 //		createConsumtionFile("/home/shatam-100/Down/WaterView_Data/FTP_DATA/Data_Folder_2024-07-17/WVSANGABRIELCOUNTY/");
 //		createConsumtionFile("/home/shatam-100/Down/WaterView_Data/FTP_DATA/Data_Folder_2024-07-17/WVMONTECITO/");//MonthlyConsumptionRes.csv (No such file or directory)
 //		createConsumtionFile("/home/shatam-100/Down/WaterView_Data/FTP_DATA/Data_Folder_2024-07-17/SANTABARBARA327/");//MonthlyConsumptionRes.csv (No such file or directory)
-		createConsumtionFile("/home/shatam-100/Down/WaterView_Data/FTP_DATA/Data_Folder_2024-08-14/WVWALNUTVALLEY388");
-
+		createConsumtionFile("/home/shatam-100/Down/WaterView_Data/FTP_DATA/Data_Folder_2024-10-27/WVDIXON");
+		
 	}
 
 	private static void createConsumtionFile(String FolderName) throws IOException, ParseException, SQLException {

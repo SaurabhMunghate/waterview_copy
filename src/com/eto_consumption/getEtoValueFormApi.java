@@ -331,9 +331,11 @@ public class getEtoValueFormApi {
 //		getEtoForCsvTile("/home/shatam-100/Down/WaterView_Data/Tiles/District-Boundaries-202404/DistrictBoundaries_TILES/casitas_11_Zoom_6.csv","2021-01-01","2024-05-31");
 //		getEtoForCsvTile("/home/shatam-100/Down/WaterView_Data/Tiles/District-Boundaries-202404/DistrictBoundaries_TILES/san_clemente_9_Zoom_1.csv","2021-01-01","2024-05-31");
 //		getEtoForCsvTile("/home/shatam-100/Down/WaterView_Data/Tiles/District-Boundaries-202404/DistrictBoundaries_TILES/simi_valley_11_Zoom_4.csv","2024-02-01","2024-05-31");
-		getEtoForCsvTile("/home/shatam-100/Down/WaterView_Data/Tiles/District-Boundaries-202404/DistrictBoundaries_TILES/norco__14_Zoom_17.csv","2024-01-01","2024-06-30");
+//		getEtoForCsvTile("/home/shatam-100/Down/WaterView_Data/Tiles/District-Boundaries-202404/DistrictBoundaries_TILES/norco__14_Zoom_17.csv","2024-01-01","2024-06-30");
 
-		
+//		getEtoForCsvTile("/home/shatam-100/Down/WaterView_Data/Tiles/District-Boundaries-202404/DistrictBoundaries_TILES/loma_linda9_Zoom_4.csv", "2022-01-01", "2024-09-30");//
+//		getEtoForCsvTile("/home/shatam-100/Down/WaterView_Data/Tiles/District-Boundaries-202404/DistrictBoundaries_TILES/hemet9_Zoom_8.csv", "2022-01-01", "2024-09-30");//
+
 	}
     private static void getEtoForCsvTile(String listofTiles,String startYear,String endYear) throws Exception {
         String csvFilePath = listofTiles.replace(".csv", "_Eto_Precip_")+startYear+"_To_"+endYear+"_1_March_c1.csv";
@@ -475,7 +477,7 @@ public class getEtoValueFormApi {
 
 //				U.log(etoUrl);
 //				U.log(U.getCache(etoUrl));
-				String filepath = U.getCache(etoUrl);
+//				String filepath = U.getCache(etoUrl);
 //				U.log(new File(filepath).exists());
 //				String etoFile = "", precipFile = "";
 				double avgEto = 0.0;

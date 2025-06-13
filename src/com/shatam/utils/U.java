@@ -522,6 +522,7 @@ public class U {
 		if (cacheFile.exists())return;
 	        URL url = new URL(urlStr); 
 	        U.log(url);
+	        U.log("cacheFile "+cacheFile);
 	        BufferedInputStream bis = new BufferedInputStream(url.openStream());
 	        FileOutputStream fis = new FileOutputStream(file);
 	        byte[] buffer = new byte[1024];
@@ -1131,7 +1132,31 @@ public class U {
 		return bingLatLng;
 	}*/
 
-	public static String[] getBingAddress(String lat, String lon)
+	public static String[] getBingAddress(String lat, String lon) throws Exception {
+		String[] addr = null;
+//		U.log(U.getCache("http://dev.virtualearth.net/REST/v1/Locations/" + lat + "," + lon+ "?o=json&jsonp=GeocodeCallback&key=Ak8RoKwrZE-IbLkkXRFae9UTXw2UhpuET1mWY9z_ZkzTYR_-TCG8pMcNIUEtiqo5"));
+		String htm = U.getHTML("http://dev.virtualearth.net/REST/v1/Locations/" + lat + "," + lon
+				+ "?o=json&jsonp=GeocodeCallback&key=Ak8RoKwrZE-IbLkkXRFae9UTXw2UhpuET1mWY9z_ZkzTYR_-TCG8pMcNIUEtiqo5");
+		//Anqg-XzYo-sBPlzOWFHIcjC3F8s17P_O7L4RrevsHVg4fJk6g_eEmUBphtSn4ySg
+		 
+		String[] adds = U.getValues(htm, "formattedAddress\":\"", "\"");
+		for (String item : adds) {
+			item = item.replace(", United States", "");
+			item = item.replace(", USA", "");
+			addr = U.getAddress(item);
+			if (addr == null || addr[0] == "-")
+				continue;
+			else {
+				U.log("Bing Address =>  Street:" + addr[0] + " City :" + addr[1] + " state :" + addr[2] + " ZIP :"
+						+ addr[3]);
+				return addr;
+			}
+
+		}
+		return addr;
+	}
+	
+	public static String[] getBingAddress1(String lat, String lon)
 			throws Exception {
 		String[] addr = null;
 		String htm = U
@@ -2189,6 +2214,42 @@ public class U {
 //	            output.close();
 	        }
 	    }//writeAllText()
+
+		public static String[] getFormattedAddressBing(String formattedAddress) {
+		    // Split the address using commas
+		    String[] parts = formattedAddress.split(",");
+		    String[] address = new String[] { "-", "-", "-", "-" };
+		    int n = parts.length;
+		    // If the address has enough parts to extract details
+		    if (n >= 4) {
+		        // Extract street address (all parts except the last 3)
+		        for (int i = 0; i < n - 3; i++) {
+		            address[0] = (i == 0) ? parts[i].trim() : address[0] + ", " + parts[i].trim();
+		        }
+		        // Extract city
+		        address[1] = parts[n - 3].trim();
+		        // Extract state (assume it's the first word in the second-to-last part)
+		        String stateAndZip = parts[n - 2].trim();
+		        address[2] = Util.match(stateAndZip, "\\w+", 0); // Use regex to find the state abbreviation
+		        address[2] = (address[2] == null) ? "-" : address[2].toUpperCase();
+		        // If state name is longer than 2 letters, abbreviate it using USStates.abbr
+		        if (address[2].length() > 2) {
+		            address[2] = USStates.abbr(address[2]);
+		        }
+		        // Extract ZIP code (5 digits, might have an optional dash and extra digits)
+		        address[3] = Util.match(stateAndZip, "\\d{5}", 0);
+		        address[3] = address[3].contains("-") ? address[3].substring(0, address[3].indexOf("-")) : address[3];
+		        if (address[3] == null) {
+		            address[3] = "-";
+		        }
+		    }
+		    // Validate street address
+		    if (!address[0].equals("-") && address[0].length() < 3) {
+
+		        address[0] = "-";
+		    }
+		    return address;
+		}
 		
 		
 }

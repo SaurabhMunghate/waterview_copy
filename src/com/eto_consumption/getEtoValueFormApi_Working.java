@@ -34,66 +34,79 @@ import com.shatam.utils.FileUtil;
 import com.shatam.utils.U;
 import com.vividsolutions.jts.geom.Geometry;
 
-public class getEtoValueFormApi1 {
+public class getEtoValueFormApi_Working {
 	static Map<String, String> etonotfoun = new HashMap<>();
 	static long daysBetweenA = 0;
 	static long AllTiles = 0;
 	public static void main(String[] args) throws Exception {
 
-		// 2024-08-01 ( July Month )
+		// 2024-12-31 ( Dec )
+		//Done
+//		getEtoForCsvTile("/home/shatam-100/Down/WaterView_Data/Tiles/Tile_San_Jose_Cover_145_Tiles.csv", "2024-09-01", "2024-12-31");//Done
+//		getEtoForCsvTile("/home/shatam-100/Down/WaterView_Data/Tiles/All_Tiles_walnut_valley.csv", "2024-09-01", "2024-12-31");//Done
+//		getEtoForCsvTile("/home/shatam-100/Down/WaterView_Data/Tiles/District-Boundaries-202404/DistrictBoundaries_TILES/western_14_Zoom_123_.csv", "2024-09-01", "2024-12-31");//Done
+//		getEtoForCsvTile("/home/shatam-100/Down/WaterView_Data/Tiles/District-Boundaries-202404/DistrictBoundaries_TILES/las_virgenes_9_Zoom_2.csv",   "2024-09-01", "2024-12-31");//Done
+//		getEtoForCsvTile("/home/shatam-100/Down/WaterView_Data/Tiles/18_nipomo_Tiles.csv", "2024-09-01", "2024-12-31");//Done
+//		getEtoForCsvTile("/home/shatam-100/Down/WaterView_Data/Tiles/42_roseville_Water_District_Tiles.csv","2024-09-01", "2024-12-31");//Done
+//		getEtoForCsvTile("/home/shatam-100/Down/WaterView_Data/Tiles/brentwood_boundary_18_All.csv", "2024-09-01", "2024-12-31");//Done
+//		getEtoForCsvTile("/home/shatam-100/Down/WaterView_Data/Tiles/camarillo15_.csv", "2024-09-01", "2024-12-31");//Done
+//		getEtoForCsvTile("/home/shatam-100/Down/WaterView_Data/Tiles/escondido_final_14_Zoom_36.csv","2024-09-01", "2024-12-31");//Done
+//		getEtoForCsvTile("/home/shatam-100/Down/WaterView_Data/Tiles/folsom_boundary_38_All.csv", "2024R-09-01", "2024-12-31");//Done
+//		getEtoForCsvTile("/home/shatam-100/Down/WaterView_Data/Tiles/District-Boundaries-202404/DistrictBoundaries_TILES/modesto__14_Zoom_64.csv", "2024-09-01", "2024-12-31");//Done
+//		getEtoForCsvTile("/home/shatam-100/Down/WaterView_Data/Tiles/myoma_dunes_boundary_4_.csv", "2024-09-01", "2024-12-31");//Done
+//		getEtoForCsvTile("/home/shatam-100/Down/WaterView_Data/Tiles/District_Boundary_GeoJson/rincon_boundary (copy)_13Zoom_20_.csv", "2024-09-01", "2024-12-31");//Done
+//		getEtoForCsvTile("/home/shatam-100/Down/WaterView_Data/Tiles/District-Boundaries-202404/DistrictBoundaries_TILES/simi_valley_11_Zoom_4.csv", "2024-09-01", "2024-12-31");//Done
 
-//		getEtoForCsvTile("/home/shatam-100/Down/WaterView_Data/Tiles/monte_vista_14_Zoom_16.csv", "2024-07-01", "2024-07-31");//Done
-//		getEtoForCsvTile("/home/shatam-100/Down/WaterView_Data/Tiles/Tile_San_Jose_Cover_145_Tiles.csv", "2024-07-01", "2024-07-31");//Done
-//		getEtoForCsvTile("/home/shatam-100/Down/WaterView_Data/Tiles/All_Tiles_walnut_valley.csv", "2024-07-01", "2024-07-31");//Done
-//		getEtoForCsvTile("/home/shatam-100/Down/WaterView_Data/Tiles/146_redwood_city_Tiles.csv", "2024-07-01", "2024-07-31");//Done
-//		getEtoForCsvTile("/home/shatam-100/Down/WaterView_Data/Tiles/District-Boundaries-202404/DistrictBoundaries_TILES/western_14_Zoom_123_.csv", "2024-07-01", "2024-07-31");//Done
-//		getEtoForCsvTile("/home/shatam-100/Down/WaterView_Data/Tiles/33_Carlsbad_Water_District_Tiles.csv", "2024-07-01", "2024-07-31");//Done
-//		getEtoForCsvTile("/home/shatam-100/Down/WaterView_Data/Tiles/District-Boundaries-202404/DistrictBoundaries_TILES/las_virgenes__custom_Zoom_2.csv",   "2024-06-01", "2024-06-30");//Done
-//		getEtoForCsvTile("/home/shatam-100/Down/WaterView_Data/Tiles/18_nipomo_Tiles.csv",   "2024-05-01", "2024-06-30");//Done
-//		getEtoForCsvTile("/home/shatam-100/Down/WaterView_Data/Tiles/42_roseville_Water_District_Tiles.csv", "2024-07-01", "2024-07-31");//Done
-//		getEtoForCsvTile("/home/shatam-100/Down/WaterView_Data/Tiles/District-Boundaries-202404/DistrictBoundaries_TILES/vacaville__14_Zoom_39.csv", "2024-07-01", "2024-07-31");//Done
-//		getEtoForCsvTile("/home/shatam-100/Down/WaterView_Data/Tiles/36_banning_district_Tiles.csv",   "2024-05-01", "2024-06-30");//Done
-//		getEtoForCsvTile("/home/shatam-100/Down/WaterView_Data/Tiles/7_bellflower_district_Tiles.csv", "2024-07-01", "2024-07-31");//Done
-//		getEtoForCsvTile("/home/shatam-100/Down/WaterView_Data/Tiles/brentwood_boundary_18_All.csv", "2024-07-01", "2024-07-31");//Done
-//		getEtoForCsvTile("/home/shatam-100/Down/WaterView_Data/Tiles/camarillo15_.csv", "2024-07-01", "2024-07-31");//Done
-		getEtoForCsvTile("/home/shatam-100/Down/WaterView_Data/Tiles/camrosa40_.csv", "2022-01-01", "2022-12-31");//Done
-//		getEtoForCsvTile("/home/shatam-100/Down/WaterView_Data/Tiles/east_valley36_.csv", "2024-07-01", "2024-07-31");//Done
-//		getEtoForCsvTile("/home/shatam-100/Down/WaterView_Data/Tiles/escondido_final_14_Zoom_36.csv", "2024-07-01", "2024-07-31");//Done
-//		getEtoForCsvTile("/home/shatam-100/Down/WaterView_Data/Tiles/fairfield44_.csv", "2024-07-01", "2024-07-31");//Done
-//		getEtoForCsvTile("/home/shatam-100/Down/WaterView_Data/Tiles/folsom_boundary_38_All.csv", "2024-07-01", "2024-07-31");//Done
-//		getEtoForCsvTile("/home/shatam-100/Down/WaterView_Data/Tiles/glendale35_.csv", "2024-07-01", "2024-07-31");//Done
-//		getEtoForCsvTile("/home/shatam-100/Down/WaterView_Data/Tiles/indian_wells_35_14_zoom.csv", "2024-07-01", "2024-07-31");//Done
-//		getEtoForCsvTile("/home/shatam-100/Down/WaterView_Data/Tiles/lake_arrowhead_custom_Zoom_1.csv", "2024-07-01", "2024-07-31");//Done
-//		getEtoForCsvTile("/home/shatam-100/Down/WaterView_Data/Tiles/District-Boundaries-202404/DistrictBoundaries_TILES/modesto__14_Zoom_64.csv", "2024-07-01", "2024-07-31");//Done
-//		getEtoForCsvTile("/home/shatam-100/Down/WaterView_Data/Tiles/montecito_boundary_21_.csv", "2024-07-01", "2024-07-31");//Done
-//		getEtoForCsvTile("/home/shatam-100/Down/WaterView_Data/Tiles/myoma_dunes_boundary_4_.csv", "2024-07-01", "2024-07-31");//Done
-//		getEtoForCsvTile("/home/shatam-100/Down/WaterView_Data/Tiles/orchard_dale_boundary_7_.csv", "2024-07-01", "2024-07-31");//Done
-//		getEtoForCsvTile("/home/shatam-100/Down/WaterView_Data/Tiles/oxnard_boundary_53_.csv", "2024-07-01", "2024-07-31");
-//		getEtoForCsvTile("/home/shatam-100/Down/WaterView_Data/Tiles/pomona_boundary_28_.csv", "2024-07-01", "2024-07-31");//Doen
-//		getEtoForCsvTile("/home/shatam-100/Down/WaterView_Data/Tiles/rialto_boundary_30_.csv", "2024-07-01", "2024-07-31");//Done
-//		getEtoForCsvTile("/home/shatam-100/Down/WaterView_Data/Tiles/District_Boundary_GeoJson/rincon_boundary (copy)_13Zoom_20_.csv", "2024-07-01", "2024-07-31");//Done
-//		getEtoForCsvTile("/home/shatam-100/Down/WaterView_Data/Tiles/rowland_boundary_18_.csv", "2024-07-01", "2024-07-31");//Done
-//		getEtoForCsvTile("/home/shatam-100/Down/WaterView_Data/Tiles/rubidoux_boundary_14_.csv", "2024-07-01", "2024-07-31");//Done
-//		getEtoForCsvTile("/home/shatam-100/Down/WaterView_Data/Tiles/suisun_boundary_9_.csv", "2024-07-01", "2024-07-31");//Done
-//		getEtoForCsvTile("/home/shatam-100/Down/WaterView_Data/Tiles/trabuco_canyon_boundary_21_.csv", "2024-07-01", "2024-07-31");//Done
-//		getEtoForCsvTile("/home/shatam-100/Down/WaterView_Data/Tiles/District-Boundaries-202404/DistrictBoundaries_TILES/vallejo_8_Zoom_2.csv", "2024-07-01", "2024-07-31");
-//		getEtoForCsvTile("/home/shatam-100/Down/WaterView_Data/Tiles/casitas_boundary_122_.csv", "2024-06-01", "2024-06-30");//Done
-//		getEtoForCsvTile("/home/shatam-100/Down/WaterView_Data/Tiles/cal_los_angeles_12_Zoom_6.csv", "2024-07-01", "2024-07-31");
-//		getEtoForCsvTile("/home/shatam-100/Down/WaterView_Data/Tiles/ontario_boundary_46_.csv", "2024-07-01", "2024-07-31");//Done
-//		getEtoForCsvTile("/home/shatam-100/Down/WaterView_Data/Tiles/porterville_boundary_30_.csv", "2024-07-01", "2024-07-31"); //Done
-//		getEtoForCsvTile("/home/shatam-100/Down/WaterView_Data/Tiles/District-Boundaries-202404/DistrictBoundaries_TILES/cal_sacramento__11_Zoom_6.csv", "2024-07-01", "2024-07-31");//Done 
-//		getEtoForCsvTile("/home/shatam-100/Down/WaterView_Data/Tiles/District-Boundaries-202404/DistrictBoundaries_TILES/simi_valley_11_Zoom_4.csv", "2024-07-01", "2024-07-31");//Done
-//		getEtoForCsvTile("/home/shatam-100/Down/WaterView_Data/Tiles/cal_ventura_12_Zoom_5.csv", "2024-07-01", "2024-07-31");//Done
-//		getEtoForCsvTile("/home/shatam-100/Down/WaterView_Data/Tiles/san_gabriel_county_boundary_12Zoom_19_.csv", "2024-07-01", "2024-07-31");//Done
-//		getEtoForCsvTile("/home/shatam-100/Down/WaterView_Data/Tiles/newman_boundary_12_.csv", "2024-07-01", "2024-07-31");//Done
-//		getEtoForCsvTile("/home/shatam-100/Down/WaterView_Data/Tiles/santa_monica_boundary_12_.csv", "2024-07-01", "2024-07-31");//Done
-//		getEtoForCsvTile("/home/shatam-100/Down/WaterView_Data/Tiles/beverly_hills_boundary_10_.csv", "2024-07-01", "2024-07-31");//Done
-//		getEtoForCsvTile("/home/shatam-100/Down/WaterView_Data/Tiles/dixon_boundary_6_.csv", "2024-07-01", "2024-07-31");//Done
-//		getEtoForCsvTile("/home/shatam-100/Down/WaterView_Data/Tiles/santa_barbara_boundary_13Zoom_21_.csv", "2024-07-01", "2024-07-31");//Done
-//		getEtoForCsvTile("/home/shatam-100/Down/WaterView_Data/Tiles/District-Boundaries-202404/DistrictBoundaries_TILES/norco__14_Zoom_17.csv", "2024-07-01", "2024-07-31");//Done
-//		getEtoForCsvTile("/home/shatam-100/Down/WaterView_Data/Tiles/District-Boundaries-202404/DistrictBoundaries_TILES/rancho__11_Zoom_4.csv", "2024-07-01", "2024-07-31");//Done
-//		getEtoForCsvTile("/home/shatam-100/Down/WaterView_Data/Tiles/District-Boundaries-202404/DistrictBoundaries_TILES/san_clemente_9_Zoom_1.csv", "2024-07-01", "2024-07-31");//Done
+		
+//		getEtoForCsvTile("/home/shatam-100/Down/WaterView_Data/Tiles/monte_vista_14_Zoom_16.csv", "2025-01-01",  "2025-03-31");//Done
+//		getEtoForCsvTile("/home/shatam-100/Down/WaterView_Data/Tiles/146_redwood_city_Tiles.csv","2024-10-01", "2024-12-31");//
+//		getEtoForCsvTile("/home/shatam-100/Down/WaterView_Data/Tiles/District-Boundaries-202404/DistrictBoundaries_TILES/vacaville__14_Zoom_39.csv","2024-10-01", "2024-12-31");//Done
+//		getEtoForCsvTile("/home/shatam-100/Down/WaterView_Data/Tiles/camrosa40_.csv", "2024-10-01", "2024-12-31");//Done
+//		getEtoForCsvTile("/home/shatam-100/Down/WaterView_Data/Tiles/east_valley36_.csv", "2024-10-01", "2024-12-31");//Done
+//		getEtoForCsvTile("/home/shatam-100/Down/WaterView_Data/Tiles/glendale35_.csv", "2024-10-01", "2024-12-31");//Done
+//		getEtoForCsvTile("/home/shatam-100/Down/WaterView_Data/Tiles/lake_arrowhead_custom_Zoom_1.csv", "2024-10-01", "2024-12-31");//Done
+//		getEtoForCsvTile("/home/shatam-100/Down/WaterView_Data/Tiles/orchard_dale_boundary_7_.csv", "2024-10-01", "2024-12-31");//Done
+//		getEtoForCsvTile("/home/shatam-100/Down/WaterView_Data/Tiles/pomona_boundary_28_.csv", "2024-10-01", "2024-12-31");//Done
+//		getEtoForCsvTile("/home/shatam-100/Down/WaterView_Data/Tiles/rialto_boundary_30_.csv", "2024-10-01", "2024-12-31");//Done
+//		getEtoForCsvTile("/home/shatam-100/Down/WaterView_Data/Tiles/trabuco_canyon_boundary_21_.csv", "2024-10-01", "2024-12-31");//Done
+//		getEtoForCsvTile("/home/shatam-100/Down/WaterView_Data/Tiles/casitas_boundary_122_.csv", "2024-10-01", "2024-12-31");//Done
+//		getEtoForCsvTile("/home/shatam-100/Down/WaterView_Data/Tiles/ontario_boundary_46_.csv", "2024-10-01", "2024-12-31");//Done
+//		getEtoForCsvTile("/home/shatam-100/Down/WaterView_Data/Tiles/san_gabriel_county_boundary_12Zoom_19_.csv", "2024-10-01", "2024-12-31");//Done
+//		getEtoForCsvTile("/home/shatam-100/Down/WaterView_Data/Tiles/District-Boundaries-202404/DistrictBoundaries_TILES/dixon_12_Zoom_5.csv", "2023-01-01", "2024-12-31");//
+//		getEtoForCsvTile("/home/shatam-100/Down/WaterView_Data/Tiles/41_Tiles_jurupa.csv", "2024-10-01", "2024-12-31");//
 
+//		getEtoForCsvTile("/home/shatam-100/Down/WaterView_Data/Tiles/7_bellflower_district_Tiles.csv", "2024-08-01", "2024-12-31");//
+//		getEtoForCsvTile("/home/shatam-100/Down/WaterView_Data/Tiles/fairfield44_.csv","2024-08-01", "2024-12-31");//
+//		getEtoForCsvTile("/home/shatam-100/Down/WaterView_Data/Tiles/indian_wells_35_14_zoom.csv", "2024-08-01", "2024-12-31");//
+//		getEtoForCsvTile("/home/shatam-100/Down/WaterView_Data/Tiles/montecito_boundary_21_.csv", "2024-08-01", "2024-12-31");//
+//		getEtoForCsvTile("/home/shatam-100/Down/WaterView_Data/Tiles/rowland_boundary_18_.csv", "2024-08-01", "2024-12-31");//
+//		getEtoForCsvTile("/home/shatam-100/Down/WaterView_Data/Tiles/rubidoux_boundary_14_.csv", "2024-08-01", "2024-12-31");//
+//		getEtoForCsvTile("/home/shatam-100/Down/WaterView_Data/Tiles/suisun_boundary_9_.csv", "2024-08-01", "2024-12-31");//
+//		getEtoForCsvTile("/home/shatam-100/Down/WaterView_Data/Tiles/porterville_boundary_30_.csv", "2024-08-01", "2024-12-31");//
+//		getEtoForCsvTile("/home/shatam-100/Down/WaterView_Data/Tiles/District-Boundaries-202404/DistrictBoundaries_TILES/cal_sacramento__11_Zoom_6.csv", "2024-08-01", "2024-12-31");//
+//		getEtoForCsvTile("/home/shatam-100/Down/WaterView_Data/Tiles/cal_ventura_12_Zoom_5.csv", "2024-08-01", "2024-12-31");//
+//		getEtoForCsvTile("/home/shatam-100/Down/WaterView_Data/Tiles/santa_monica_boundary_12_.csv", "2024-08-01", "2024-12-31");//
+//		getEtoForCsvTile("/home/shatam-100/Down/WaterView_Data/Tiles/beverly_hills_boundary_10_.csv", "2024-08-01", "2024-12-31");//
+//		getEtoForCsvTile("/home/shatam-100/Down/WaterView_Data/Tiles/santa_barbara_boundary_13Zoom_21_.csv", "2024-08-01", "2024-12-31");//
+//		getEtoForCsvTile("/home/shatam-100/Down/WaterView_Data/Tiles/District-Boundaries-202404/DistrictBoundaries_TILES/norco__14_Zoom_17.csv","2024-08-01", "2024-12-31");//
+//		getEtoForCsvTile("/home/shatam-100/Down/WaterView_Data/Tiles/District-Boundaries-202404/DistrictBoundaries_TILES/rancho__11_Zoom_4.csv", "2024-08-01", "2024-12-31");//
+		getEtoForCsvTile("/home/shatam-100/Down/WaterView_Data/Tiles/District-Boundaries-202404/DistrictBoundaries_TILES/san_clemente_9_Zoom_1.csv", "2024-08-01","2025-05-31");//Done
+		
+		//----------------------------------------------------------------------------------------------
+//		getEtoForCsvTile("/home/shatam-100/Down/WaterView_Data/Tiles/District-Boundaries-202404/DistrictBoundaries_TILES/loma_linda9_Zoom_2.csv", "2025-01-01",  "2025-03-31");//Done
+//		getEtoForCsvTile("/home/shatam-100/Down/WaterView_Data/Tiles/District-Boundaries-202404/DistrictBoundaries_TILES/hemet9_Zoom_2.csv", "2025-01-01",  "2025-03-31");//Done
+		
+//		getEtoForCsvTile("/home/shatam-100/Down/WaterView_Data/Tiles/33_Carlsbad_Water_District_Tiles.csv", "2024-08-01", "2024-08-31");//Done
+//		getEtoForCsvTile("/home/shatam-100/Down/WaterView_Data/Tiles/36_banning_district_Tiles.csv",   "2024-05-01", "2024-06-30");//
+//		getEtoForCsvTile("/home/shatam-100/Down/WaterView_Data/Tiles/oxnard_boundary_53_.csv", "2024-08-01", "2024-08-31");
+//		getEtoForCsvTile("/home/shatam-100/Down/WaterView_Data/Tiles/District-Boundaries-202404/DistrictBoundaries_TILES/vallejo_8_Zoom_2.csv", "2024-08-01", "2024-08-31");
+//		getEtoForCsvTile("/home/shatam-100/Down/WaterView_Data/Tiles/cal_los_angeles_12_Zoom_6.csv", "2024-08-01", "2024-08-31");
+//		getEtoForCsvTile("/home/shatam-100/Down/WaterView_Data/Tiles/newman_boundary_12_.csv", "2024-08-01", "2024-08-31");//
+//		getEtoForCsvTile("/home/shatam-100/Down/WaterView_Data/Tiles/District-Boundaries-202404/B_Tiles/dixon_boundary_6_.csv", "2023-07-01", "2024-09-30");//
+
+
+		
+		
 		for (Map.Entry<String, String> entry : etonotfoun.entrySet()) {
             System.out.println("Key: " + entry.getKey());
 		}
@@ -105,7 +118,7 @@ public class getEtoValueFormApi1 {
         System.out.println(listofTiles);
     	System.out.println("+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++");
 
-    	System.out.println(csvFilePath);
+//    	System.out.println(csvFilePath);
         List<DatePair> datePairs = getDatePairsInRange(startYear, endYear, 89);
 
         System.out.println("Date Pairs within the range with a 90-d;ay difference:");
@@ -213,7 +226,7 @@ public class getEtoValueFormApi1 {
 //					U.log(data.get("Tiles").toString());
 //					// TODO: handle exception
 //				}
-//				System.out.println("Centroid Latitude: " + centroid.y);
+//				System.out.println("Centroid Latitude: " + centroid.y+" Centroid Longitude: " + centroid.x);
 //				System.out.println("Centroid Longitude: " + centroid.x);
 				String lat = centroid.y + "";
 				String lon = centroid.x + "";
@@ -223,6 +236,7 @@ public class getEtoValueFormApi1 {
 //				U.log(dateString);
 //				U.log(lastDayOfMonth);
 //				System.out.println("lat : "+df.format(Lat) + " ,lng : " + df.format(Lon));
+				
 
 				String etoUrl = "https://et.water.ca.gov/api/data?appKey=53ce8f92-2d8d-4a02-8551-801575b1e678&targets=lat%3D"
 						+ df.format(Lat) + ",lng%3D" + df.format(Lon)
@@ -262,12 +276,13 @@ public class getEtoValueFormApi1 {
 //				if(etoUrl.contains("34.41")&& etoUrl.contains("119.56")) {
 //					etoUrl = etoUrl.replace("34.41", "34.41").replace("119.56", "119.55");
 //				}
-//				if(etoUrl.contains("34.26")&& etoUrl.contains("119.28")) {
-//					etoUrl = etoUrl.replace("34.26", "34.26").replace("119.28", "119.27");
-//				}
-//				if(etoUrl.contains("34.33")&& etoUrl.contains("119.41")) {
-//					etoUrl = etoUrl.replace("34.33", "34.33").replace("119.41", "119.40");
-//				}
+				if(etoUrl.contains("lat%3D34.02,lng%3D-119.18")) {
+					etoUrl = etoUrl.replace("lat%3D34.02,lng%3D-119.18", "lat%3D34.17,lng%3D-118.84");
+				}if(etoUrl.contains("lat%3D34.02,lng%3D-118.48")) {
+					etoUrl = etoUrl.replace("lat%3D34.02,lng%3D-118.48", "lat%3D34.17,lng%3D-118.65");
+				}
+				
+				
 				if(etoUrl.contains("lat%3D34.28,lng%3D-119.34")) {
 					etoUrl = etoUrl.replace("lat%3D34.28,lng%3D-119.34", "lat%3D34.28,lng%3D-119.31");
 				}if(etoUrl.contains("lat%3D34.35,lng%3D-119.43")) {
@@ -453,8 +468,36 @@ public class getEtoValueFormApi1 {
 					etoUrl = etoUrl.replace("3D34.37,lng%3D-119.47", "3D34.37,lng%3D-119.45");
 				}if(etoUrl.contains("lat%3D34.24,lng%3D-119.28")) {
 					etoUrl = etoUrl.replace("lat%3D34.24,lng%3D-119.28", "lat%3D34.24,lng%3D-119.21");
+				}if(etoUrl.contains("lat%3D34.05,lng%3D-117.29")) {
+					etoUrl = etoUrl.replace("lat%3D34.05,lng%3D-117.29", "lat%3D34.05,lng%3D-117.20");
+				}if(etoUrl.contains("lat%3D33.43,lng%3D-117.07")) {
+					etoUrl = etoUrl.replace("lat%3D33.43,lng%3D-117.07", "lat%3D33.44,lng%3D-117.13");
+				}if(etoUrl.contains("lat%3D33.43,lng%3D-117.07")) {
+					etoUrl = etoUrl.replace("lat%3D33.43,lng%3D-117.07", "lat%3D33.44,lng%3D-117.13");
+				}if(etoUrl.contains("lat%3D33.72,lng%3D-117.42")) {
+					etoUrl = etoUrl.replace("lat%3D33.72,lng%3D-117.42", "lat%3D33.74,lng%3D-117.27");
 				}
-
+				if(etoUrl.contains("lat%3D38.44,lng%3D-121.86")) {
+					etoUrl = etoUrl.replace("lat%3D38.44,lng%3D-121.86", "lat%3D38.44,lng%3D-121.85");
+				}if(etoUrl.contains("lat%3D38.51,lng%3D-121.86")) {
+					etoUrl = etoUrl.replace("lat%3D38.51,lng%3D-121.86", "lat%3D38.44,lng%3D-121.85");
+				}
+				
+				//----------------------------------------------
+//				U.log(etoUrl);
+//				if(etoUrl.contains("lat%3D38.51,lng%3D-121.77&")) {
+//					etoUrl = etoUrl.replace("lat%3D38.51,lng%3D-121.77&", "lat%3D38.44,lng%3D-121.85&");
+//				}if(etoUrl.contains("lat%3D38.44,lng%3D-121.77&")) {
+//					etoUrl = etoUrl.replace("lat%3D38.44,lng%3D-121.77&", "lat%3D38.44,lng%3D-121.83&");
+//				}if(etoUrl.contains("lat%3D38.44,lng%3D-121.86&")) {
+//					etoUrl = etoUrl.replace("lat%3D38.44,lng%3D-121.86&", "lat%3D38.45,lng%3D-121.81&");
+//				}if(etoUrl.contains("lat%3D38.38,lng%3D-121.77&")) {
+//					etoUrl = etoUrl.replace("lat%3D38.38,lng%3D-121.77&", "lat%3D38.45,lng%3D-121.83&");
+//				}if(etoUrl.contains("lat%3D38.51,lng%3D-121.86&")) {
+//					etoUrl = etoUrl.replace("lat%3D38.51,lng%3D-121.86&", "lat%3D38.45,lng%3D-121.85&");
+//				}
+				
+				//------------------------------------------------
 //				if(etoUrl.contains("")) {
 //					etoUrl = etoUrl.replace("33.65,lng%3D-118.39", "33.75,lng%3D-118.30");
 //				}
@@ -470,8 +513,8 @@ public class getEtoValueFormApi1 {
 				String Precip = "";
 				String SrNo = "0";
 				try {
-//					U.log(etoUrl);
-//					U.log(U.getCache(etoUrl));
+					U.log(etoUrl);
+					U.log(U.getCache(etoUrl));
 //					U.log(Tiles);
 					U.downloadUsingStream(etoUrl, U.getCache(etoUrl));
 					
@@ -525,7 +568,7 @@ public class getEtoValueFormApi1 {
 					try {
 //					System.out.println( formattedLat +"  |  "+formattedLon );
 						latlag = new String[] {formattedLat, formattedLon };
-						if(formattedLon.contains("-117.19")) formattedLon = "-117.18";
+//						if(formattedLon.contains("-117.19")) formattedLon = "-117.18";
 					} catch (Exception e) {		
 						
 					    System.err.println("Error: " + e.getMessage());
@@ -540,8 +583,8 @@ public class getEtoValueFormApi1 {
 					}
 					String add[] ;
 					try {
-						add = U.getGoogleAddressWithKey(latlag);
-						zip = add[3];
+//						add = U.getGoogleAddressWithKey(latlag);
+//						zip = add[3];
 					} catch (Exception e) {
 						// TODO: handle exception
 						String st = latlag[0].trim() + "," + latlag[1].trim();
@@ -549,13 +592,15 @@ public class getEtoValueFormApi1 {
 						String key = "AIzaSyAeG9lLU8fWh8rWcPivHDwxLAM4ZCInpmk";
 //						U.log(latlag[0].trim() + " " + latlag[1].trim());
 //						U.log("With key"+U.getCache(addr));
-						
-						String html = U.getHTMLForGoogleApiWithKey(addr,key);
-						String txt = U.getSectionValue(html, "formatted_address\" : \"", "\"");
-						String ZIPS_LIST[] = U.getValues(html, "formatted_address\" : \"", "\"");
-//						System.out.println(ZIPS_LIST[2]);
-				        String zipCode = extractZipCode(ZIPS_LIST[1]);
-				        zip = zipCode;
+						{
+//						String html = U.getHTMLForGoogleApiWithKey(addr,key);
+//						String txt = U.getSectionValue(html, "formatted_address\" : \"", "\"");
+//						String ZIPS_LIST[] = U.getValues(html, "formatted_address\" : \"", "\"");
+////						System.out.println(ZIPS_LIST[2]);
+//				        String zipCode = extractZipCode(ZIPS_LIST[1]);
+//				        zip = zipCode;
+				        zip = "93001";
+						}
 //						U.log(zip);
 //						writer.writeNext(etoVals);
 //						continue;
@@ -664,7 +709,7 @@ public class getEtoValueFormApi1 {
 //		            		System.out.println(eto+" | "+date+" | "+values.toString());
 //		            	}else {
 //			            	System.out.println(date+" | "+values.toString());
-//			            	System.out.println(etoUrl);
+			            	System.out.println(etoUrl);
 //			            	System.out.println(precipUrl);
 //			            	System.out.println(U.getCache(etoUrl));
 //			            	System.out.println(U.getCache(precipUrl));
